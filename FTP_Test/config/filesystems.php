@@ -64,6 +64,31 @@ return [
             'endpoint' => env('AWS_URL'),
         ],
 
+        'ftp' => [
+            'driver' => 'ftp',
+            'host' => env('FTP_HOST'),
+            'username' => env('FTP_USERNAME'),
+            'password' => env('FTP_PASSWORD'),
+            'root' => '/dev.lavishmark.com' // for example: /var/www/html/dev/images
+        ],
+
+        'sftp' => [
+            'driver' => 'sftp',
+            'host' => '43.230.123.18',
+            'username' => 'eboxftp',
+            'password' => 'exord2020_ftp',
+
+            // Settings for SSH key based authentication...
+            // 'privateKey' => '/path/to/privateKey',
+            // 'password' => 'encryption-password',
+
+            // Optional SFTP Settings...
+             'port' => 5060,
+             'root' => '/var/www/html/data1/',
+             //'root' => '/var/www/html/data1',
+             'timeout' => 300,
+        ],
+
     ],
 
     /*

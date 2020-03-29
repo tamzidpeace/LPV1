@@ -16,3 +16,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/upload', 'FtpController@index');
+Route::post('/upload', 'FtpController@store')->name('image');
+Route::get('/get-by-directory', 'FtpController@getByDirectory')->name('retrieve');
+Route::get('/get-by-year', 'FtpController@getByYear');
