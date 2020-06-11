@@ -2,23 +2,46 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0584b5c9-4725-41d1-af1a-ba349570ce82" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/Permission.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Permission.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Use_Of_Ajax_in_Laravel/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Use_Of_Ajax_in_Laravel/.idea/Use_Of_Ajax_in_Laravel.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Use_Of_Ajax_in_Laravel/.idea/laravel-plugin.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Use_Of_Ajax_in_Laravel/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Use_Of_Ajax_in_Laravel/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Use_Of_Ajax_in_Laravel/.idea/php.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Use_Of_Ajax_in_Laravel/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Use_Of_Ajax_in_Laravel/app/Http/Controllers/AjaxController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Use_Of_Ajax_in_Laravel/app/Http/Controllers/Auth/ConfirmPasswordController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Use_Of_Ajax_in_Laravel/app/Http/Controllers/Auth/ForgotPasswordController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Use_Of_Ajax_in_Laravel/app/Http/Controllers/Auth/LoginController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Use_Of_Ajax_in_Laravel/app/Http/Controllers/Auth/RegisterController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Use_Of_Ajax_in_Laravel/app/Http/Controllers/Auth/ResetPasswordController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Use_Of_Ajax_in_Laravel/app/Http/Controllers/Auth/VerificationController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Use_Of_Ajax_in_Laravel/app/Http/Controllers/Controller.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Use_Of_Ajax_in_Laravel/app/Http/Controllers/HomeController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Use_Of_Ajax_in_Laravel/database/migrations/2014_10_12_100000_create_password_resets_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Use_Of_Ajax_in_Laravel/package-lock.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Use_Of_Ajax_in_Laravel/public/css/app.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Use_Of_Ajax_in_Laravel/public/js/app.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Use_Of_Ajax_in_Laravel/public/mix-manifest.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Use_Of_Ajax_in_Laravel/resources/js/components/ExampleComponent.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Use_Of_Ajax_in_Laravel/resources/sass/_variables.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Use_Of_Ajax_in_Laravel/resources/views/auth/login.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Use_Of_Ajax_in_Laravel/resources/views/auth/passwords/confirm.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Use_Of_Ajax_in_Laravel/resources/views/auth/passwords/email.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Use_Of_Ajax_in_Laravel/resources/views/auth/passwords/reset.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Use_Of_Ajax_in_Laravel/resources/views/auth/register.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Use_Of_Ajax_in_Laravel/resources/views/auth/verify.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Use_Of_Ajax_in_Laravel/resources/views/home.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Use_Of_Ajax_in_Laravel/resources/views/index.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Use_Of_Ajax_in_Laravel/resources/views/layouts/app.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/bootstrap.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/bootstrap.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/sass/app.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sass/app.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webpack.mix.js" beforeDir="false" afterPath="$PROJECT_DIR$/webpack.mix.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ComposerSettings" synchronizationState="SYNCHRONIZE">
+  <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
     <execution>
       <executable />
@@ -128,13 +151,16 @@
     </include_path>
   </component>
   <component name="ProjectId" id="1ZSlymvO7SNGalZsAIhlStWQLZt" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
@@ -162,17 +188,27 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1584840632496</updated>
-      <workItem from="1584840638539" duration="1473000" />
+      <workItem from="1584840638539" duration="2367000" />
+      <workItem from="1584974859014" duration="22000" />
+      <workItem from="1585456906721" duration="129000" />
+      <workItem from="1585459301490" duration="11000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
   <component name="WindowStateProjectService">
     <state x="322" y="0" key="#php56/Dockerfile" timestamp="1584841601216">
       <screen x="0" y="0" width="1192" height="629" />
     </state>
     <state x="322" y="0" key="#php56/Dockerfile/0.0.1192.629@0.0.1192.629" timestamp="1584841601216" />
+    <state x="376" y="69" key="FileChooserDialogImpl" timestamp="1584974879435">
+      <screen x="0" y="0" width="1192" height="629" />
+    </state>
+    <state x="376" y="69" key="FileChooserDialogImpl/0.0.1192.629@0.0.1192.629" timestamp="1584974879435" />
   </component>
 </project>
