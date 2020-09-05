@@ -19,7 +19,7 @@ class TestController extends Controller
        $product->price = $request->price;
        $product->save();
 
-       return back();
+       return response()->json("success");
 
     }
 
