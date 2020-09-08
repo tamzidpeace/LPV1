@@ -19,3 +19,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::get('country', 'CountryController@country');
+Route::get('country/{id}', 'CountryController@countryById');
+Route::post('create-country', 'CountryController@createCountry');
+Route::post('update-country/{id}', 'CountryController@updateContry');
+Route::delete('delete-country/{id}', 'CountryController@deleteCountry');
