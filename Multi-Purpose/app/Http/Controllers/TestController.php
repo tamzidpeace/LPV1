@@ -12,6 +12,11 @@ class TestController extends Controller
         return view('test', compact('products'));
     }
 
+    function allData() {
+        $products = Product::all();
+        return response()->json($products);
+    }
+
     function saveProduct(Request $request) {
        $product = new Product();
 
