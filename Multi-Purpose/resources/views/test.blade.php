@@ -51,6 +51,7 @@
 
             <table class="table">
                 <thead class="thead-dark">
+                    <input type="hidden" name="url" id="getDataUrl" value="{{ url('all-data') }}">
                     <tr>
                         <th scope="col">#</th>
                         <th scope="col">Proudct Name</th>
@@ -58,8 +59,8 @@
                         <th scope="col">Action</th>
                     </tr>
                 </thead>
-                <tbody>
-                    @foreach ($products as $product)
+                <tbody id="showAllData">
+                    {{-- @foreach ($products as $product)
                     <tr>
                         <th scope="row">1</th>
                         <td>{{ $product->name }}</td>
@@ -69,7 +70,7 @@
                                 onclick="return deleteFun()">Delete</a>
                         </td>
                     </tr>
-                    @endforeach
+                    @endforeach --}}
                 </tbody>
             </table>
         </div>
