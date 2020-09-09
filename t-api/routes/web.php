@@ -16,12 +16,3 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-
-Route::get('get-data', 'TestController@test');
-Route::get('all-data', 'TestController@allData');
-
-
-Route::post('/t1/product-save', 'TestController@saveProduct')->name('product.save');
-Route::get('/t1/delete/{id}', 'TestController@delete')->name('product.delete');
-
-Route::get('/test2', 'TestController@test2');

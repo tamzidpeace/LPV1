@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Product;
+use App\User;
 
 class TestController extends Controller
 {
@@ -32,5 +33,15 @@ class TestController extends Controller
         $product = Product::findOrFail($id);
         $product->delete();
         return back();
+    }
+
+    function test3() {
+        $user = User::all();
+        return response()->json($user, 200);
+    }
+
+    function test2() {
+        $products = User::all();
+        return $products;
     }
 }

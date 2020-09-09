@@ -102,5 +102,10 @@
         &emsp;<a target="_blank" href="{{url('filter-js')}}">filter-js</a> (array filter) &emsp;<a target="_blank" href="{{url('map-js')}}">map-js</a> (array map) &emsp;<a target="_blank" href="{{url('reduce-js')}}">reduce-js</a> (array reduce)
         <br/><br/>
     </div>
+
+
+    <div>
+    <a href="file/sample.pdf"> PDF</a>
+    </div>
 </body>
 </html>
