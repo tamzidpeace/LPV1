@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Product;
 use App\User;
 
+
 class TestController extends Controller
 {
     function test() {
@@ -43,5 +44,10 @@ class TestController extends Controller
     function test2() {
         $products = User::all();
         return $products;
+    }
+
+    public function test4() {
+        $x = config('calculations.some_key');
+        return $_SERVER['SERVER_NAME'];
     }
 }

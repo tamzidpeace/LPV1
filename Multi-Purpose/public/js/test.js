@@ -72,9 +72,6 @@ $(document).ready(function(){
             
         }));
 
-
-
-
         $("#showAllData").append(tr);
       })
     })

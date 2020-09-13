@@ -25,3 +25,4 @@ Route::post('/t1/product-save', 'TestController@saveProduct')->name('product.sav
 Route::get('/t1/delete/{id}', 'TestController@delete')->name('product.delete');
 
 Route::get('/test2', 'TestController@test2');
+Route::get('test4', 'TestController@test4');
