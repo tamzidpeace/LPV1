@@ -12,6 +12,8 @@ class CountryController extends Controller
     }
 
     function countryById($id) {
+        $country = Country::findOrFail($id);
+        
         return response()->json(Country::find($id), 200);
     }
 
