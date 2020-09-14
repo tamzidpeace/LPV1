@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
+Route::get('/home', function () {
     return view('welcome');
 });
 
@@ -26,3 +26,6 @@ Route::get('/t1/delete/{id}', 'TestController@delete')->name('product.delete');
 
 Route::get('/test2', 'TestController@test2');
 Route::get('test4', 'TestController@test4');
+
+// new ajax route
+Route::get('/', 'CustomerController@home');
