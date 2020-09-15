@@ -36,3 +36,4 @@ Route::get('view-customer', 'CustomerController@view')->name('customer.view');
 Route::get('view-customer-single', 'CustomerController@viewSingle')->name('customer.view.single');
 Route::get('destroy', 'CustomerController@destroy')->name('customer.destroy');
 Route::post('edit', 'CustomerController@edit')->name('customer.edit');
+Route::get('load-after-add', 'CustomerController@loadAfterAdd')->name('customer.load.after.add');

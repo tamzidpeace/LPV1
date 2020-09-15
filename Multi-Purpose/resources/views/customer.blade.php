@@ -33,35 +33,41 @@
                         </div>
                     </div>
                     <div class="card-body">
-                        <table class="table table-bordered">
+                        <table class="table table-bordered" id="showAllDataHere">
                             <thead>
                                 <tr>
                                     <th scope="col">#</th>
                                     <th scope="col">Name</th>
                                     <th scope="col">Phone</th>
                                     <th scope="col">Email</th>
-                                    <th>Registered Date</th>
                                     <th>Manage</th>
                                 </tr>
 
                             </thead>
                             <tbody id="customer-tbody">
+                                @php
+                                    $i = 1;
+                                @endphp
+                                @foreach ($customers as $item)
                                 <tr>
-                                    {{-- <th scope="row">1</th>
-                                    <td>Mark</td>
-                                    <td>123</td>
-                                    <td>mark@gmail.com</td>
-                                    <td>2020-9-14</td>
+                                    <td scope="row">{{ $i++ }}</td>
+                                    <td>{{ $item->name }}</td>
+                                    <td>{{ $item->phone }}</td>
+                                    <td>{{ $item->email }}</td>
+
                                     <td>
-                                        <a  class="btn btn-outline-primary" href="">View</a>
-                                        <a class="btn btn-outline-warning" href="">Edit</a>
-                                        <a class="btn btn-outline-danger" href="">Delete</a>
-                                    </td> --}}
+                                        <a data-toggle="modal" data-target="#show-customer" onclick="view({{ $item->id }})"  id="view"
+                                         class="btn btn-outline-primary" href="">View</a>
+                                        <a data-toggle="modal" data-target="#editCustomer" onclick="edit({{ $item->id }})"
+                                        class="btn btn-outline-warning" href="">Edit</a>
+                                        <a onclick="destroy({{ $item->id }})" class="btn btn-outline-danger" href="">Delete</a>
+                                    </td>
                                 </tr>
+                                @endforeach
                             </tbody>
                         </table>
-
-                    </div>
+                        {{ $customers->links() }}
+                    </div>                    
                 </div>
 
             </div>
@@ -141,7 +147,8 @@
                         </div>
                         <div class="form-group">
                             <label for="email">Email</label>
-                            <input type="email" class="form-control" name="email" id="edit-email" placeholder="Enter Email">
+                            <input type="email" class="form-control" name="email" id="edit-email"
+                                placeholder="Enter Email">
                         </div>
 
                         <div class="text-right">
@@ -172,14 +179,14 @@
                     <p id="cus-phone"></p>
                     <p id="cus-email"></p>
                 </div>
-                <div class="modal-footer">                    
+                <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                 </div>
             </div>
         </div>
     </div>
 
-{{-- {{ $customers->link }} --}}
+    {{-- {{ $customers->link }} --}}
     {{-- end modal view --}}
 
 

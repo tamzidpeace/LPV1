@@ -9,7 +9,8 @@ class CustomerController extends Controller
 {
     public function home()
     {
-        return view('customer');
+        $customers = Customer::paginate(5);
+        return view('customer', compact('customers'));
     }
 
     public function view()
@@ -30,6 +31,11 @@ class CustomerController extends Controller
         } catch (\Exception $e) {
             return $e;
         }
+    }
+
+    public function loadAfterAdd() {
+        $customers = Customer::latest()->paginate(5);
+        return view('cus_extra', compact('customers'));
     }
 
     public function viewSingle(Request $request)

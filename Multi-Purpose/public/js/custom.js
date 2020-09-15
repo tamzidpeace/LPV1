@@ -1,5 +1,3 @@
-// const { event } = require("jquery");
-
 // add customer
 $(function () {
     $("#customer-form").on("submit", function (e) {
@@ -10,7 +8,6 @@ $(function () {
         var data = form.serialize();
         // console.log(url);
 
-        // insert data
         $.ajax({
             url: url,
             data: data,
@@ -21,38 +18,13 @@ $(function () {
                 if (data == 'success') {
                     $("#addCustomer").modal("hide");
                     swal('Great', 'New Customer Added!', 'Success');
-                    $("#customer-tbody").empty();
-                    load_data();
+                    loadAfterAdd();                    
                 } else {
                     swal('Error', 'Something went wrong!', 'error');
                 }
             }
         });
     });
-});
-
-// view customer
-function load_data() {
-    $(document).ready(function () {
-        jQuery.ajax({
-            url: 'view-customer',
-            method: 'GET',
-            dataType: "JSON",
-            success: function (data) {
-                console.log(data);
-                for (let index = 0, count = 1; index < data.length; index++, count++) {
-                    $("#customer-tbody").append('<tr><td>' + count + '</th> <th>' + data[index].name + '</th> <th>' + data[index].phone + '</th> <th>' + data[index].email + '</th> <th>' + data[index].created_at +
-                        ' <td> <a data-toggle="modal" data-target="#show-customer" onclick="view(' + data[index].id + ')"  id="view" class="btn btn-outline-primary" href=""> View </a>  <a onclick="edit(' + data[index].id + ')" class="btn btn-outline-warning" data-toggle="modal" data-target="#editCustomer" href=""> Edit </a> <a onclick="destroy(' + data[index].id + ')" class="btn btn-outline-danger" href=""> Delete </a> </td>  </th> </tr>');
-                }
-
-            }
-        });
-
-    });
-}
-
-$(document).ready(function () {
-    load_data();
 });
 
 //view single customer data
@@ -88,10 +60,9 @@ function destroy(id) {
                 id: id
             },
             dataType: 'JSON',
-            success: function (data) {
-                $("#customer-tbody").empty();
-                load_data();
+            success: function (data) {                
                 swal('GREAT', 'Data Deleted', 'success');
+                loadAfterAdd();
             },
             error: function (data) {
                 swal('OPPS!', 'something went wrong!', 'error');
@@ -103,8 +74,7 @@ function destroy(id) {
 // edit customer
 function edit(id) {
     event.preventDefault();
-    //console.log(id);
-    // $("#name").val("hello");
+
     $.ajax({
         url: 'view-customer-single',
         type: 'GET',
@@ -124,10 +94,7 @@ function edit(id) {
                 var url = form.attr("action");
                 var type = form.attr("method");
                 var data = form.serialize();
-                // console.log(url);
 
-                // insert data
-                x= 1;
                 $.ajax({
                     url: url,
                     data: data,
@@ -135,24 +102,31 @@ function edit(id) {
                     dataType: "JSON",
                     success: function (data) {
                         console.log(data);
-                        
+
                         if (data == 'success') {
-                            x++;
                             $("#editCustomer").modal("hide");
-                            swal('Great', 'Customer info Updated!', 'Success');                            
-                            $("#customer-tbody").empty();
-                            if(x<3) {
-                            console.log(x);
-                            load_data();
-                            }
-                            
+                            swal('Great', 'Customer info Updated!', 'Success');
+                            //console.log(x);
+                            loadAfterAdd();
                         } else {
                             swal('Error', 'Something went wrong!', 'error');
                         }
                     }
                 });
             });
-           
+
+        },
+    });
+}
+
+function loadAfterAdd() {
+    $.ajax({
+        url: 'load-after-add',
+        type: 'get',
+        dataType: 'HTML',
+        success: function (data) {
+            //console.log(data);
+            $("#showAllDataHere").html(data);
         },
     });
 }
