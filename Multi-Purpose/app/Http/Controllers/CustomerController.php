@@ -43,4 +43,14 @@ class CustomerController extends Controller
         $customer->delete();
         return response()->json('success');
     }
+
+    public function edit(Request $request) {
+        
+        $customer = Customer::findOrFail($request->id);
+        $customer->name = $request->name;
+        $customer->phone = $request->phone;
+        $customer->email = $request->email;
+        $customer->save();
+        return response()->json("success");
+    }
 }

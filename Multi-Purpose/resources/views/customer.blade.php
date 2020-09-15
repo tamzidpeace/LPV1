@@ -114,6 +114,48 @@
     </div>
     {{-- end modal --}}
 
+    {{-- edit modal --}}
+    <div class="modal fade" id="editCustomer" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Edit Customer</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+
+                    <form action="{{ route('customer.edit') }}" method="POST" id="customer-edit-form">
+                        @csrf
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" class="form-control" name="name" id="edit-name" placeholder="Enter Name">
+                        </div>
+                        <input type="hidden" name="id" id="edit-id">
+                        <div class="form-group">
+                            <label for="phone">Phone</label>
+                            <input type="number" class="form-control" name="phone" id="edit-phone"
+                                placeholder="Enter Phone Number">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" class="form-control" name="email" id="edit-email" placeholder="Enter Email">
+                        </div>
+
+                        <div class="text-right">
+                            <button type="submit" class="btn btn-primary mb-2">Submit</button>
+                        </div>
+                    </form>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+    {{-- end edit modal --}}
+
     {{-- modal view --}}
 
     <div class="modal" tabindex="-1" id="show-customer" role="dialog">
