@@ -37,4 +37,10 @@ class CustomerController extends Controller
         $customer = Customer::findOrFail($request->id);
         return response()->json($customer);
     }
+
+    public function destroy(Request $request) {
+        $customer = Customer::findOrFail($request->id);
+        $customer->delete();
+        return response()->json('success');
+    }
 }

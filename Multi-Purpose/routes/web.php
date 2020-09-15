@@ -34,3 +34,4 @@ Route::get('/', 'CustomerController@home');
 Route::post('add-customer', 'CustomerController@store')->name('add-customer');
 Route::get('view-customer', 'CustomerController@view')->name('customer.view');
 Route::get('view-customer-single', 'CustomerController@viewSingle')->name('customer.view.single');
+Route::get('destroy', 'CustomerController@destroy')->name('customer.destroy');

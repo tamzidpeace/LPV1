@@ -39,16 +39,16 @@ function load_data() {
                 console.log(data);
                 for (let index = 0, count = 1; index < data.length; index++, count++) {
                     $("#customer-tbody").append('<tr><td>' + count + '</th> <th>' + data[index].name + '</th> <th>' + data[index].phone + '</th> <th>' + data[index].email + '</th> <th>' + data[index].created_at +
-                        ' <td> <a data-toggle="modal" data-target="#show-customer" onclick="view(' + data[index].id + ')"  id="view" class="btn btn-outline-primary" href=""> View </a>  <a class="btn btn-outline-warning" href=""> Edit </a> <a class="btn btn-outline-danger" href=""> Delete </a> </td>  </th> </tr>');
+                        ' <td> <a data-toggle="modal" data-target="#show-customer" onclick="view(' + data[index].id + ')"  id="view" class="btn btn-outline-primary" href=""> View </a>  <a class="btn btn-outline-warning" href=""> Edit </a> <a onclick="destroy(' + data[index].id + ')" class="btn btn-outline-danger" href=""> Delete </a> </td>  </th> </tr>');
                 }
-    
+
             }
         });
-    
+
     });
 }
 
-$(document).ready(function() {
+$(document).ready(function () {
     load_data();
 });
 
@@ -69,7 +69,29 @@ function view(id) {
             $("#cus-email").text("Email: " + data.email);
         }
     });
+}
 
-   
+function destroy(id) {
+    if (!confirm("Are You Sure to delete this"))
+        event.preventDefault();
+    else {
+        event.preventDefault();
+        $.ajax({
+            url: 'destroy',
+            type: 'GET',
+            data: {
+                id: id
+            },
+            dataType: 'JSON',
+            success: function (data) {
+                $("#customer-tbody").empty();
+                load_data();
+                swal('GREAT', 'Data Deleted', 'success');
+            },
+            error: function (data) {
+                swal('OPPS!', 'something went wrong!', 'error');
+            },
+        });
+    }
 
 }
