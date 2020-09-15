@@ -10,6 +10,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>Ajax</title>
 </head>
 
@@ -25,9 +26,10 @@
                 <div class="card">
                     <div class="card-header">
                         <div class="text-right">
-                            <button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#addCustomer">
-                               Add Customer
-                              </button>
+                            <button type="button" class="btn btn-outline-primary" data-toggle="modal"
+                                data-target="#addCustomer">
+                                Add Customer
+                            </button>
                         </div>
                     </div>
                     <div class="card-body">
@@ -69,7 +71,7 @@
     {{-- end table --}}
     {{-- modal --}}
     <!-- Button trigger modal -->
-    
+
 
     <!-- Modal -->
     <div class="modal fade" id="addCustomer" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
@@ -77,18 +79,35 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">Add New Customer</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div class="modal-body">
-                    ...
+
+                    <form action="{{ route('add-customer') }}" method="POST" id="customer-form">
+                        @csrf
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" class="form-control" name="name" id="name" placeholder="Enter Name">
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone</label>
+                            <input type="number" class="form-control" name="phone" id="phone" placeholder="Enter Phone Number">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" class="form-control" name="email" id="email" placeholder="Enter Email">
+                        </div>
+
+                        <div class="text-right">
+                            <button type="submit" class="btn btn-primary mb-2">Submit</button>
+                        </div>
+                    </form>
+
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
-                </div>
+
             </div>
         </div>
     </div>
@@ -96,7 +115,14 @@
 
 
     {{-- script --}}
-    <script src="js/app.js"></script>
+    <script src="js/app.js"></script>    
+    <script>
+        $.ajaxSetup({
+            headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+    </script>
     <script src="js/custom.js"></script>
     {{-- end script --}}
 </body>

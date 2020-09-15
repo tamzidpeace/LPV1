@@ -29,3 +29,6 @@ Route::get('test4', 'TestController@test4');
 
 // new ajax route
 Route::get('/', 'CustomerController@home');
+
+// ajax crud
+Route::post('add-customer', 'CustomerController@store')->name('add-customer');
