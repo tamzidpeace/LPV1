@@ -32,8 +32,8 @@
                             </button>
                         </div>
                     </div>
-                    <div class="card-body">
-                        <table class="table table-bordered" id="showAllDataHere">
+                    <div class="card-body" id="showAllDataHere">
+                        <table class="table table-bordered" >
                             <thead>
                                 <tr>
                                     <th scope="col">#</th>
@@ -65,9 +65,11 @@
                                 </tr>
                                 @endforeach
                             </tbody>
+                            
                         </table>
-                        {{ $customers->links() }}
-                    </div>                    
+                        {{ $customers->links() }}                    
+                    </div>  
+                    
                 </div>
 
             </div>

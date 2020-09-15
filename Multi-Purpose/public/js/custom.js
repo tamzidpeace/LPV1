@@ -130,3 +130,23 @@ function loadAfterAdd() {
         },
     });
 }
+
+$(document).on('click', ".pagination li a" ,function(e) {
+    e.preventDefault();
+    var url = $(this).attr("href");
+    var id = url.split("?page=")[1];
+    console.log(id);
+
+    $.ajax({
+        url: 'load-paginate'+'?page='+id,
+        type:'GET',
+        dataType:'HTML',
+        success: function(data) {
+            //console.log(data);
+            $("#showAllDataHere").html(data);
+        }
+    });
+})
+// function pagination() {
+
+// }
