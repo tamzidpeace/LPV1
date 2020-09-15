@@ -22,7 +22,7 @@
         <div class="row">
             <div class="col-md-12">
                 <h2>Data Table</h2>
-
+                <input type="hidden" name="" value="">
                 <div class="card">
                     <div class="card-header">
                         <div class="text-right">
@@ -43,26 +43,26 @@
                                     <th>Registered Date</th>
                                     <th>Manage</th>
                                 </tr>
+
                             </thead>
-                            <tbody>
+                            <tbody id="customer-tbody">
                                 <tr>
-                                    <th scope="row">1</th>
+                                    {{-- <th scope="row">1</th>
                                     <td>Mark</td>
                                     <td>123</td>
                                     <td>mark@gmail.com</td>
                                     <td>2020-9-14</td>
                                     <td>
-                                        <a class="btn btn-outline-primary" href="">View</a>
+                                        <a  class="btn btn-outline-primary" href="">View</a>
                                         <a class="btn btn-outline-warning" href="">Edit</a>
                                         <a class="btn btn-outline-danger" href="">Delete</a>
-                                    </td>
+                                    </td> --}}
                                 </tr>
                             </tbody>
                         </table>
 
                     </div>
                 </div>
-
 
             </div>
         </div>
@@ -94,7 +94,8 @@
                         </div>
                         <div class="form-group">
                             <label for="phone">Phone</label>
-                            <input type="number" class="form-control" name="phone" id="phone" placeholder="Enter Phone Number">
+                            <input type="number" class="form-control" name="phone" id="phone"
+                                placeholder="Enter Phone Number">
                         </div>
                         <div class="form-group">
                             <label for="email">Email</label>
@@ -113,10 +114,36 @@
     </div>
     {{-- end modal --}}
 
+    {{-- modal view --}}
+
+    <div class="modal" tabindex="-1" id="show-customer" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Customer Info</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p id="cus-name"></p>
+                    <p id="cus-phone"></p>
+                    <p id="cus-email"></p>
+                </div>
+                <div class="modal-footer">                    
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    {{-- end modal view --}}
+
 
     {{-- script --}}
     <script src="js/app.js"></script>
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>    
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script>
         $.ajaxSetup({
             headers: {
