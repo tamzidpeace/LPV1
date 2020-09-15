@@ -137,7 +137,7 @@
         </div>
     </div>
 
-
+{{-- {{ $customers->link }} --}}
     {{-- end modal view --}}
 
 
