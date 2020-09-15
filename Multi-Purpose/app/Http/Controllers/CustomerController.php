@@ -14,11 +14,15 @@ class CustomerController extends Controller
 
     public function store(Request $request)
     {
-        $customer = new Customer;
+        try{
+            $customer = new Customer;
         $customer->name = $request->name;
         $customer->phone = $request->phone;
         $customer->email = $request->email;
         $customer->save();
-        return \response()->json("New Customer Created!");
+        return \response()->json("success");
+        } catch(\Exception $e) {
+            return $e;
+        }
     }
 }

@@ -13,7 +13,13 @@ $(function() {
             type: type,
             dataType:"JSON",
             success: function(data) {
-                console.log(data);
+                //console.log(data);
+                if(data == 'success') {
+                    $("#addCustomer").modal("hide");
+                    swal('Great', 'New Customer Added!', 'Success');
+                } else {
+                    swal('Error', 'Something went wrong!', 'error');
+                }
             }       
         });
     });
