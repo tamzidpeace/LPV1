@@ -15,10 +15,12 @@ $(function () {
             dataType: "JSON",
             success: function (data) {
                 //console.log(data);
-                if (data == 'success') {
-                    $("#addCustomer").modal("hide");
+                if (data == 'success') {                                        
+                    $("#addCustomer").modal("hide");                    
                     swal('Great', 'New Customer Added!', 'Success');
-                    loadAfterAdd();                    
+                    loadAfterAdd();
+                    $("#customer-form")[0].reset();
+                   
                 } else {
                     swal('Error', 'Something went wrong!', 'error');
                 }
@@ -130,3 +132,23 @@ function loadAfterAdd() {
         },
     });
 }
+
+$(document).on('click', ".pagination li a" ,function(e) {
+    e.preventDefault();
+    var url = $(this).attr("href");
+    var id = url.split("?page=")[1];
+    console.log(id);
+
+    $.ajax({
+        url: 'load-paginate'+'?page='+id,
+        type:'GET',
+        dataType:'HTML',
+        success: function(data) {
+            //console.log(data);
+            $("#showAllDataHere").html(data);
+        }
+    });
+})
+// function pagination() {
+
+// }

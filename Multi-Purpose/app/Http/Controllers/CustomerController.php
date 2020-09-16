@@ -38,6 +38,11 @@ class CustomerController extends Controller
         return view('cus_extra', compact('customers'));
     }
 
+    public function loadPaginate() {
+        $customers = Customer::latest()->paginate(5);
+        return view('paginate', compact('customers'));
+    }
+
     public function viewSingle(Request $request)
     {
         $customer = Customer::findOrFail($request->id);

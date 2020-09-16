@@ -2,16 +2,6 @@
 
 use Illuminate\Support\Facades\Route;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
 
 Route::get('/home', function () {
     return view('welcome');
@@ -37,3 +27,8 @@ Route::get('view-customer-single', 'CustomerController@viewSingle')->name('custo
 Route::get('destroy', 'CustomerController@destroy')->name('customer.destroy');
 Route::post('edit', 'CustomerController@edit')->name('customer.edit');
 Route::get('load-after-add', 'CustomerController@loadAfterAdd')->name('customer.load.after.add');
+Route::get('load-paginate', 'CustomerController@loadPaginate')->name('customer.load.paginate');
+
+// auto complete & search
+Route::get('auto-complete', 'AjaxRestController@index');
+Route::get('auto-complete-data', 'AjaxRestController@getData');
