@@ -32,3 +32,4 @@ Route::get('load-paginate', 'CustomerController@loadPaginate')->name('customer.l
 // auto complete & search
 Route::get('auto-complete', 'AjaxRestController@index');
 Route::get('auto-complete-data', 'AjaxRestController@getData');
+Route::get('auto-search', 'AjaxRestController@autoSearch');

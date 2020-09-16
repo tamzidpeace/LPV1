@@ -21,4 +21,9 @@ class AjaxRestController extends Controller
             return $e;
         }
     }
+
+    public function autoSearch(Request $request) {
+        $result = Customer::where('name', 'LIKE', '%' . $request->search . '%')->get();
+        return \response()->json($result);
+    }
 }
