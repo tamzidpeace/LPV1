@@ -28,3 +28,7 @@ Route::get('destroy', 'CustomerController@destroy')->name('customer.destroy');
 Route::post('edit', 'CustomerController@edit')->name('customer.edit');
 Route::get('load-after-add', 'CustomerController@loadAfterAdd')->name('customer.load.after.add');
 Route::get('load-paginate', 'CustomerController@loadPaginate')->name('customer.load.paginate');
+
+// auto complete & search
+Route::get('auto-complete', 'AjaxRestController@index');
+Route::get('auto-complete-data', 'AjaxRestController@getData');

@@ -15,10 +15,12 @@ $(function () {
             dataType: "JSON",
             success: function (data) {
                 //console.log(data);
-                if (data == 'success') {
-                    $("#addCustomer").modal("hide");
+                if (data == 'success') {                                        
+                    $("#addCustomer").modal("hide");                    
                     swal('Great', 'New Customer Added!', 'Success');
-                    loadAfterAdd();                    
+                    loadAfterAdd();
+                    $("#customer-form")[0].reset();
+                   
                 } else {
                     swal('Error', 'Something went wrong!', 'error');
                 }
