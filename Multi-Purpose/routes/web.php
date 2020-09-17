@@ -36,3 +36,4 @@ Route::get('auto-search', 'AjaxRestController@autoSearch');
 
 // blade
 Route::get('blade', 'TestController@blade');
+Route::get('blade-form', 'TestController@bladeForm')->name('blade.form');

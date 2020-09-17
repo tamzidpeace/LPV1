@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Product;
 use App\User;
+use App\Customer;
 
 
 class TestController extends Controller
@@ -53,5 +54,19 @@ class TestController extends Controller
 
     public function blade() {
         return view('student.index');
+    }
+
+    public function bladeForm(Request $request) {
+        $validate = $request->validate([
+            'name' => ['required',],
+            'email' => ['required'],
+        ]);
+
+        $customer = new Customer;
+
+        $customer->name = $request->name;
+        $customer->email = $request->email;
+        
+        return view('student.index', compact( 'customer'));
     }
 }
