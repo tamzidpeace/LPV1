@@ -50,4 +50,8 @@ class TestController extends Controller
         $x = config('calculations.some_key');
         return $_SERVER['SERVER_NAME'];
     }
+
+    public function blade() {
+        return view('student.index');
+    }
 }
