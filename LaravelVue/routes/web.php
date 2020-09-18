@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\Admin\AdminHomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,10 +17,14 @@ use App\Http\Controllers\HomeController;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('home');
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
-    return view('dashboard');
+    return view('admin.pages.master');
 })->name('dashboard');
 
-Route::get('admin-dashboard', [HomeController::class, 'index'])->name('index');
+
+Route::group(['prefix'     => 'admin',], function () {
+    Route::get('dashboard', [AdminHomeController::class, 'index'])->name('dashboard.admin');    
+    Route::get('logout', [AdminHomeController::class, 'logout'])->name('logout.admin');
+});
