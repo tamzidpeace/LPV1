@@ -27,4 +27,5 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 Route::group(['prefix'     => 'admin',], function () {
     Route::get('dashboard', [AdminHomeController::class, 'index'])->name('dashboard.admin');    
     Route::get('logout', [AdminHomeController::class, 'logout'])->name('logout.admin');
+    Route::get('profile', [AdminHomeController::class, 'profile'])->name('logout.profile');
 });

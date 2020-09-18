@@ -24,11 +24,11 @@
         <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
         <li class="nav-item ">
-          <a href="{{ route('dashboard.admin') }}" class="nav-link">
+          <router-link to="/admin/dashboard" class="nav-link">
             <i class="nav-icon fas fa-th"></i>
             <p>
               Dashboard
-            </p>
+            </router-link>
           </a>
         </li>
         {{-- manage --}} 

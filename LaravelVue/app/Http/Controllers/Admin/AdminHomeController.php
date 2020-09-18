@@ -23,4 +23,8 @@ class AdminHomeController extends Controller
             return \redirect(route('home'));
         }
     }
+
+    public function profile() {
+        return view('admin.pages.profile');
+    }
 }
