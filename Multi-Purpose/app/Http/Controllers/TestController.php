@@ -6,57 +6,65 @@ use Illuminate\Http\Request;
 use App\Product;
 use App\User;
 use App\Customer;
-
+use DateTime;
 
 class TestController extends Controller
 {
-    function test() {
+    public function test()
+    {
         $products = Product::all();
         return view('test', compact('products'));
     }
 
-    function allData() {
+    public function allData()
+    {
         $products = Product::all();
         return response()->json($products);
     }
 
-    function saveProduct(Request $request) {
-       $product = new Product();
+    public function saveProduct(Request $request)
+    {
+        $product = new Product();
 
-       $product->name = $request->name;
-       $product->price = $request->price;
-       $product->save();
+        $product->name = $request->name;
+        $product->price = $request->price;
+        $product->save();
 
-       return response()->json("success");
-
+        return response()->json("success");
     }
 
-    function delete($id) {
+    public function delete($id)
+    {
         $product = Product::findOrFail($id);
         $product->delete();
         return back();
     }
 
-    function test3() {
+    public function test3()
+    {
         $user = User::all();
         return response()->json($user, 200);
     }
 
-    function test2() {
+    public function test2()
+    {
         $products = User::all();
         return $products;
     }
 
-    public function test4() {
+    public function test4()
+    {
         $x = config('calculations.some_key');
         return $_SERVER['SERVER_NAME'];
     }
 
-    public function blade() {
+    public function blade()
+    {
         return view('student.index');
     }
 
-    public function bladeForm(Request $request) {
+    public function bladeForm(Request $request)
+    {
         $validate = $request->validate([
             'name' => ['required',],
             'email' => ['required'],
@@ -67,6 +75,22 @@ class TestController extends Controller
         $customer->name = $request->name;
         $customer->email = $request->email;
         
-        return view('student.index', compact( 'customer'));
+        return view('student.index', compact('customer'));
+    }
+
+    public function date()
+    {
+        $d=mktime(0, 0, 0, date('m'), date('d'), date('Y'));        
+        $today = date("Y-m-d H:i:s", $d);
+        $yesterday = new DateTime('1 day ago');
+        $date = new DateTime('30 days ago');
+        $month_ago = $date->format('Y-m-d');
+        $date = new DateTime('7 days ago');
+        $week_ago = $date->format('Y-m-d');
+        $customer = Customer::where('id', 60)->first();
+
+        return $today_records = Customer::where([['id', $customer->id], ['created_at', '>=' , $today]])->count();
+        $week_records = Customer::where([['created_at', '>=' , $week_ago], ['id', $customer->id]])->count();
+        return $month_records = Customer::where([['id', $customer->id], ['created_at', '>=' , $month_ago]])->count();
     }
 }
