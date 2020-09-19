@@ -10,11 +10,10 @@
 </head>
 
 <body class="hold-transition sidebar-mini layout-fixed">
-  <div class="wrapper">
+  <div class="wrapper" id="app">
     @include('admin.includes.navbar')   
     @include('admin.includes.sidebar')    
-    @include('admin.includes.content_top')   
-    @yield('content')       
+    @include('admin.includes.content_top')    
     @include('admin.includes.footer')    
   </div>  
   @include('admin.includes.scripts')
