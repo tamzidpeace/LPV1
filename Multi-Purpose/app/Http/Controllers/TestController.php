@@ -60,7 +60,9 @@ class TestController extends Controller
 
     public function blade()
     {
-        return view('student.index');
+        $records = Customer::all();
+        return view('student.index', \compact('records'));
+
     }
 
     public function bladeForm(Request $request)
@@ -71,11 +73,12 @@ class TestController extends Controller
         ]);
 
         $customer = new Customer;
+       
 
         $customer->name = $request->name;
         $customer->email = $request->email;
         
-        return view('student.index', compact('customer'));
+        return view('student.index', compact('records'));
     }
 
     public function date()
@@ -92,5 +95,11 @@ class TestController extends Controller
         return $today_records = Customer::where([['id', $customer->id], ['created_at', '>=' , $today]])->count();
         $week_records = Customer::where([['created_at', '>=' , $week_ago], ['id', $customer->id]])->count();
         return $month_records = Customer::where([['id', $customer->id], ['created_at', '>=' , $month_ago]])->count();
+    }
+
+    public function dataTable() {
+        $customers = Customer::all();
+
+        return view('student.data_table', \compact('customers'));
     }
 }

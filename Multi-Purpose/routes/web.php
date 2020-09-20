@@ -40,3 +40,4 @@ Route::get('blade-form', 'TestController@bladeForm')->name('blade.form');
 
 //data test 
 Route::get('/date', 'TestController@date');
+Route::get('datatable', 'TestController@dataTable');
