@@ -18,7 +18,10 @@ Route::get('/test2', 'TestController@test2');
 Route::get('test4', 'TestController@test4');
 
 // new ajax route
-Route::get('/', 'CustomerController@home');
+// Route::get('/', 'CustomerController@home');
+Route::get('/', function () {
+    return redirect(route('login'));
+});
 
 // ajax crud
 Route::post('add-customer', 'CustomerController@store')->name('add-customer');
@@ -41,3 +44,6 @@ Route::get('blade-form', 'TestController@bladeForm')->name('blade.form');
 //data test 
 Route::get('/date', 'TestController@date');
 Route::get('datatable', 'TestController@dataTable');
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
