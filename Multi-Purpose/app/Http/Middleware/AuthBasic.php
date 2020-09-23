@@ -3,8 +3,9 @@
 namespace App\Http\Middleware;
 
 use Closure;
+use Illuminate\Support\Facades\Auth;
 
-class AuthKey
+class AuthBasic
 {
     /**
      * Handle an incoming request.
@@ -15,10 +16,10 @@ class AuthKey
      */
     public function handle($request, Closure $next)
     {
-        $token = $request->header('APP_KEY');
-        if ($token != 'ABCDEF') {
-            return response()->json(['message'=> 'App Key Not Found'], 401);
+        if (Auth::onceBasic()) {
+            return response()->json(['message'=> 'Auth Failed'], 401);
+        } else {
+            return $next($request);
         }
-        return $next($request);
     }
 }
