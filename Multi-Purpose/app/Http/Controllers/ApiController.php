@@ -25,7 +25,7 @@ class ApiController extends Controller
         if (!Auth::attempt($login)) {
             return \response(['message' => 'invalid login credential!']);
         } else {
-            $token = Auth::user()->createToken('authTokern')->token;
+            $token = Auth::user()->createToken('authTokern')->accessToken;
 
             return \response(['user' => Auth::user(), 'token' => $token]);
         }
