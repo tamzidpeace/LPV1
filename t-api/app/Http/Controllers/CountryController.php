@@ -7,18 +7,23 @@ use App\Country;
 
 class CountryController extends Controller
 {
-    function country() {
+    public function country()
+    {
         return response()->json(Country::get(), 200);
     }
 
-    function countryById($id) {
+    public function countryById($id)
+    {
         $country = Country::findOrFail($id);
+        if (\is_null($country)) {
+            return \response()->json('Nothing Found!', 404);
+        }
         
-        return response()->json(Country::find($id), 200);
+        return response()->json($country, 200);
     }
 
-    function createCountry(Request $request) {
-        
+    public function createCountry(Request $request)
+    {
         $country = new Country;
 
         $country->name = $request->name;
@@ -27,21 +32,28 @@ class CountryController extends Controller
         $country->save();
 
         return response()->json("entry added", 201);
-
     }
 
-    function updateContry(Request $request, $id) {
+    public function updateContry(Request $request, $id)
+    {
         $country = Country::findOrFail($id);
+        
+        if($country) return 123;
+        else return 0;
+        // if (isset($country)) {
+        //     $country->name = $request->name;
+        //     $country->capital = $request->capital;
 
-        $country->name = $request->name;
-        $country->capital = $request->capital;
+        //     $country->save();
 
-        $country->save();
+        //     return response()->json($country, 200);
+        // }
 
-        return response()->json($country, 200);
+        // return \response()->json('Nothing Found!', 404);
     }
 
-    function deleteCountry($id) {
+    public function deleteCountry($id)
+    {
         $country = Country::findOrFail($id);
         $country->delete();
         
