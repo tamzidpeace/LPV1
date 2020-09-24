@@ -19,9 +19,8 @@ use Illuminate\Support\Facades\Route;
 // });
 
 
-Route::get('users', 'ApiController@users');
-Route::post('login', 'ApiController@login');
-Route::get('/test3', 'TestController@test3');
+
+
 
 
 
@@ -32,5 +31,9 @@ Route::get('update-country/{id}', 'CountryController@updateContry');
 Route::delete('delete-country/{id}', 'CountryController@deleteCountry');
 
 Route::group(['middleware' => ['auth:api']], function () {
-    Route::get('country', 'ApiController@users');    
+    Route::get('users', 'ApiController@users');
+    Route::get('logout', 'ApiController@logout');    
 });
+
+Route::post('login', 'ApiController@login');
+Route::post('signup', 'ApiController@signup');

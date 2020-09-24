@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\User;
 use App\Customer;
+use Carbon\Carbon;
 
 class ApiController extends Controller
 {
@@ -29,5 +30,34 @@ class ApiController extends Controller
 
             return \response(['user' => Auth::user(), 'token' => $token]);
         }
+    }
+
+    // signup
+    public function signup(Request $request)
+    {
+        $request->validate([
+            'name' => 'required|string',
+            'email' => 'required|string|email|unique:users,email',
+            'password' => 'required|min:8|string',
+        ]);
+
+        $user = new User([
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => bcrypt($request->password),
+        ]);
+        
+        $user->save();
+        return response()->json([
+            'message' => 'Successfully created user!'
+        ], 201);
+    }
+    // logout
+    public function logout(Request $request)
+    {        
+        $request->user()->token()->revoke();
+        return response()->json([
+            'message' => 'Successfully logged out'
+        ]);
     }
 }
