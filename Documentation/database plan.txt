@@ -1,0 +1,57 @@
+roles :
+
+1. admin
+2. shop_owner
+3. seller
+4. service_consumer
+
+
+entities:
+
+admins(Super Admin)
+---------------------
+->name
+->email
+->password
+---------------------
+
+shop_owners
+--------------------
+->fname
+->lname
+->username(unique)
+->email(unique)
+->phone(unique)
+->password
+->shop_id(fk)
+->logo(file)
+->is_active
+
+note: email & phone number verification ?
+
+-----------------------------------------
+
+sellers
+-----------------
+->name
+->username(unique)
+->password
+->email(unique)
+->phone(unique)
+->show_owner_id(fk)
+->is_active
+---------------------------------------
+
+service_consumers
+---------------------------
+->fname
+->lname
+->username(unique)
+->email(unique)
+->phone(unique)
+->password
+->is_active
+--------------------------------------
+
+
+
