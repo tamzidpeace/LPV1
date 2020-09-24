@@ -1,0 +1,129 @@
+
+
+
+TODO:
+Add pick up number for call only (straight to parked)-done
+Verify if QR code scaned is not for immediate next customer - done
+Edit phone number - done
+Print QR Code (Printer is needed) - partially done
+set QR dimentions as a store preference
+Detailed log functionality
+    i:information
+    w:warning
+    e:error
+    d:debug
+    f:fatal
+time avg calc based on N last visit durations-done.
+Kill remaining sessions on the next day start
+set visit count # begining as a store parameter - done
+display customers in Q in (serving page) with paging feature or scrolling
+Add property to enable/disable sending sms for every store and across the platform - done
+Log page
+store preference page-admin rights.
+global settings page
+manage users page
+manage registers page
+add rule checking for users
+create integration logic
+Strong validation for all functions
+set time zone on every page - done
+page to show current surving number and next in the list - done
+Display all error,issues in the top of the page properly
+update get next id to complex ID (32 bit)-done
+url shortening -done
+add visit_id parameter to sms link to avoid getting a new number when opening in different browser-done
+Add type of store:
+    1-Retail:(no park and serving, next-->,complete(remove from queue)) -next 2.
+    2-Resturant:next-->call-->serving--> (park)-->remove from queue -done
+Add dashboard:
+    daily/monthly visits.
+    average waiting time
+    average serving time
+    last year report.
+    retail:current number inside.
+user gets unique QR when join the queue-done
+Register uses QR reader to mark the begining of service time-done
+when register scan QR code, if the user is not in his turn, register get notified immediatly and he have the options to accept or reject the scan-done
+Register main screen shows the information of:done
+    1-who is waiting
+    2-who was called
+    3-who scaned the qr and transitioned from 'call' to 'serving'
+    4-who is parked until his order is resumed.
+    5-next button:call next visit and completed the visit which is being served.
+    6-print button:any visit can be printed to thermal printer
+    7-the ability to update visit phone number.
+people who don't have phone or internet connection, can still print QR code using (tablet+thermal printer)-next 3
+page that shows:(tablet opens this page and placed at store entrance) - done
+    1-number of ppl in waiting list
+    2-avg waiting time
+    3-display QR code for new customers to scan or arrival
+page that shows: done
+    1-current number being served or called
+SMS-done:
+    1-Add me (added!):contains direct link to the visit(session is not needed)
+    2-update number (number updated)
+    3-number is approaching
+    4-call number (your turn)
+    5-call again (if no show up)
+    6-Sorry you missed your turn
+    7-Notify customer (item ready for pick up)
+IOS and Android applications for:
+    1-clients
+    2-register
+    3-terminals
+users types:
+    1-register(client visible)
+    2-Owner(client visible)
+    3-Admin(us developers)
+    4-integration:can't login, for specific store(us deveopers) 
+    5-termenal:per store, for display tablets and can't make any changes (client visible).
+user phone number or email for login
+login screen, user needs to provide the follwoing in order to login:-done
+    1-email/phone number
+    2-password
+    3-store id
+Utilization and license logic:
+    1-expiry date (check in every page)
+allow certin number or users (max occupancy) to get inside the store, create screen to control traffic (go,stop) based on max occupancy of the store 
+(enhancement:know number of ppl inside the store using motion sensor device)-done
+    max occupanyc is a store preference.
+    current occupancy can be defiend by register or by motion sensonr device
+payment:
+    Payment method page.
+    billing & utilization page
+    deduct from payment method and send invoice every month (billing cycle)
+Login using google,facebook and apple
+Retrieve store and user information during login process
+visit table:added timestamp for leftQ,Skipped,Called and parked
+bug: sms templates format is not perfect when new store is created
+update access modifiers
+change eqHelper properties and methods to static
+Log class to static
+PHPUnit
+
+Log resets every 3 months (global preference):
+reset log solution:
+SET GLOBAL event_scheduler = ON;
+
+create an event using the  CREATE EVENT statement:
+CREATE EVENT IF NOT EXISTS test_event_01
+ON SCHEDULE AT CURRENT_TIMESTAMP
+DO
+  INSERT INTO messages(message,created_at)
+  VALUES('Test MySQL Event 1',NOW());
+
+
+To shows all events in the database, you use the following statement:
+SHOW EVENTS FROM classicmodels;
+
+on store creation:
+create new event based on interval provided
+update next run = current time + interval
+
+when next log reset comes:
+update last reset = NOW
+update next reset = now + interval
+run delete statement
+
+
+How to protect project (code) from Developers
