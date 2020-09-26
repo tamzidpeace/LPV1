@@ -36,3 +36,9 @@ Route::group(['middleware' => 'auth:blogger'], function () {
 Route::group(['middleware' => 'auth:admin'], function () {
     Route::view('/admin', 'admin');
 });
+
+Route::group(['middleware' => 'auth'], function () {
+    Route::get('/home', 'HomeController@index');
+    Route::post('add-role', 'HomeController@addRole')->name('role.add');
+});
+
