@@ -81,8 +81,15 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Laravel
+                   @php
+                    $actual_link = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+                    if($actual_link == "http://shop.localhost:8000/") echo app('currentTenant')->domain;
+                    else echo "Laravel";
+                   @endphp
+                    
                 </div>
+
+                
 
                 <div class="links">
                     <a href="https://laravel.com/docs">Docs</a>
