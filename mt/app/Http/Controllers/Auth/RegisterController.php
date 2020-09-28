@@ -8,6 +8,12 @@ use App\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use Redirect;
+use Hyn\Tenancy\Models\Website;
+use Hyn\Tenancy\Models\Hostname;
+use Illuminate\Support\Facades\Auth;
+use Hyn\Tenancy\Contracts\Repositories\WebsiteRepository;
+use Hyn\Tenancy\Contracts\Repositories\HostnameRepository;
 
 class RegisterController extends Controller
 {
@@ -29,7 +35,18 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = RouteServiceProvider::HOME;
+    protected $redirectTo;
+
+    protected function redirectTo()
+    {
+        // $user = Auth::user();
+        // $website = Website::where('user_id', $user->id)->first();
+        // $domain = Hostname::where('website_id', $website->id)->first();
+        // $host = $domain->fqdn;
+        // $this->redirectTo = 'http://' . $host . ':8000';
+        // return $this->redirectTo;
+        return '/home';
+    }
 
     /**
      * Create a new controller instance.
@@ -64,10 +81,21 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
+        $user =  User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
         ]);
+
+        // $website = new Website;
+        // $website->user_id = $user->id;
+        // $website->uuid = $user->name;
+        // app(WebsiteRepository::class)->create($website);        
+
+        // $hostname = new Hostname;
+        // $hostname->fqdn = $user->name . 'localhost';
+        // $hostname = app(HostnameRepository::class)->create($hostname);
+        // app(HostnameRepository::class)->attach($hostname, $website);
+        return $user;
     }
 }
