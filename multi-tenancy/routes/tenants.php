@@ -6,6 +6,9 @@ use Illuminate\Support\Facades\Route;
 
 $namespace = 'App\\Http\\Controllers\\Tenant\\';
 
+
+Auth::routes();
+
 Route::prefix('api')->namespace($namespace)->group(function () {
     Route::apiResource('users', 'UserController');
     Route::get('test', 'TestController@index');

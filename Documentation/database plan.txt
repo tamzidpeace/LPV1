@@ -23,7 +23,6 @@ shop_owners
 ->email(unique)
 ->phone(unique)
 ->password
-->shop_id(fk)
 ->logo(file)
 ->is_active
 
