@@ -21,15 +21,20 @@ class TestController extends Controller
     public function index(Request $request)
     {
         $user = Auth::user();
+        $users = User::all();
 
-        $website = new Website();
-        $website->user_id = $user->id;        
-        app(WebsiteRepository::class)->create($website);
+        // $website = new Website();
+        // $website->user_id = $user->id;        
+        // app(WebsiteRepository::class)->create($website);
 
-        $hostname = new Hostname();
-        $hostname->fqdn = $user->name . '.localhost';
-        app(HostnameRepository::class)->attach($hostname, $website);
-
-        return 'success';
+        // $hostname = new Hostname();
+        // $hostname->fqdn = $user->name . '.localhost';
+        // app(HostnameRepository::class)->attach($hostname, $website);
+        $website   = \Hyn\Tenancy\Facades\TenancyFacade::website();
+        $user_id = $website->user_id;
+        if($user->id == $user_id)
+            return $users;
+        else 
+            return "unautharized";
     }
 }

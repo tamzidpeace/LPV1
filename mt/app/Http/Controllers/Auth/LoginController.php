@@ -34,13 +34,13 @@ class LoginController extends Controller
 
     protected function redirectTo()
     {
-        // $user = Auth::user();
-        // $website = Website::where('user_id', $user->id)->first();
-        // $domain = Hostname::where('website_id', $website->id)->first();
-        // $host = $domain->fqdn;
-        // $this->redirectTo = 'http://' . $host . ':8000';
-        // return $this->redirectTo;
-        return '/home';
+        $user = Auth::user();
+        $website = Website::where('user_id', $user->id)->first();
+        $domain = Hostname::where('website_id', $website->id)->first();
+        $host = $domain->fqdn;
+        $this->redirectTo = 'http://' . $host . ':8000';
+        return $this->redirectTo;
+        
     }
 
     /**

@@ -39,13 +39,13 @@ class RegisterController extends Controller
 
     protected function redirectTo()
     {
-        // $user = Auth::user();
-        // $website = Website::where('user_id', $user->id)->first();
-        // $domain = Hostname::where('website_id', $website->id)->first();
-        // $host = $domain->fqdn;
-        // $this->redirectTo = 'http://' . $host . ':8000';
-        // return $this->redirectTo;
-        return '/home';
+        $user = Auth::user();
+        $website = Website::where('user_id', $user->id)->first();
+        $domain = Hostname::where('website_id', $website->id)->first();
+        $host = $domain->fqdn;
+        $this->redirectTo = 'http://' . $host . ':8000';
+        return $this->redirectTo;
+        //return '/home';
     }
 
     /**
@@ -87,15 +87,14 @@ class RegisterController extends Controller
             'password' => Hash::make($data['password']),
         ]);
 
-        // $website = new Website;
-        // $website->user_id = $user->id;
-        // $website->uuid = $user->name;
-        // app(WebsiteRepository::class)->create($website);        
+        $website = new Website();
+        $website->user_id = $user->id;
+        app(WebsiteRepository::class)->create($website);
 
-        // $hostname = new Hostname;
-        // $hostname->fqdn = $user->name . 'localhost';
-        // $hostname = app(HostnameRepository::class)->create($hostname);
-        // app(HostnameRepository::class)->attach($hostname, $website);
+        $hostname = new Hostname();
+        $hostname->fqdn = $user->name . '.localhost';
+        app(HostnameRepository::class)->attach($hostname, $website);
+        
         return $user;
     }
 }
