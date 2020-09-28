@@ -16,7 +16,7 @@ class UserController extends Controller
     public function index()
     {
         $website   = \Hyn\Tenancy\Facades\TenancyFacade::website();
-        return $website;
+        //return $website;
         return User::all();
     }
 
