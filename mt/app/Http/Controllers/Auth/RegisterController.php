@@ -43,9 +43,9 @@ class RegisterController extends Controller
         $website = Website::where('user_id', $user->id)->first();
         $domain = Hostname::where('website_id', $website->id)->first();
         $host = $domain->fqdn;
+        Auth::logout();
         $this->redirectTo = 'http://' . $host . ':8000';
-        return $this->redirectTo;
-        //return '/home';
+        return $this->redirectTo;        
     }
 
     /**
@@ -96,5 +96,6 @@ class RegisterController extends Controller
         app(HostnameRepository::class)->attach($hostname, $website);
         
         return $user;
+        
     }
 }

@@ -20,7 +20,7 @@ class TestController extends Controller
     
     public function index(Request $request)
     {
-        $user = Auth::user();
+        return $user = Auth::user();
         $users = User::all();
 
         // $website = new Website();
