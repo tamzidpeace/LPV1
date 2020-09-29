@@ -36,7 +36,7 @@ class LoginController extends Controller
     {
         $user = Auth::user();
         $host = $_SERVER['HTTP_HOST'];;
-        if($host == 'localhost:8000') Auth::logout();
+        //if($host == 'localhost:8000') Auth::logout();
         $website = Website::where('user_id', $user->id)->first();
         $domain = Hostname::where('website_id', $website->id)->first();
         $host = $domain->fqdn;

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Tenant;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Tenant\User;
+//use App\User;
 use Illuminate\Support\Facades\Auth;
 use Hyn\Tenancy\Contracts\Repositories\HostnameRepository;
 use Hyn\Tenancy\Contracts\Repositories\WebsiteRepository;
@@ -13,14 +14,15 @@ use Hyn\Tenancy\Models\Website;
 
 class TestController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
+    // public function __construct()
+    // {
+    //     $this->middleware('auth');
+    // }
     
     public function index(Request $request)
     {
-        $user = Auth::user();
+        return User::all();
+        //$user = Auth::user();
         //$users = User::all();
         
         $hostname  = app(\Hyn\Tenancy\Environment::class)->hostname();
