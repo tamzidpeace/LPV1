@@ -47,4 +47,20 @@ class TestController extends Controller
             return "unautharized";
         }
     }
+
+    public function login(Request $request)
+    {       
+        $login = $request->validate([
+            'email' => 'required|string',
+            'password' => 'required',
+        ]);
+
+        if (!Auth::attempt($login)) {
+            return \response(['message' => 'invalid login credential!']);
+        } else {
+            $token = Auth::user()->createToken('authTokern')->accessToken;
+
+            return \response(['user' => Auth::user(), 'token' => $token]);
+        }
+    }
 }
