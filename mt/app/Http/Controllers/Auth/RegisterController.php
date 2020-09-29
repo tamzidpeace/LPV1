@@ -43,7 +43,7 @@ class RegisterController extends Controller
         $website = Website::where('user_id', $user->id)->first();
         $domain = Hostname::where('website_id', $website->id)->first();
         $host = $domain->fqdn;
-        Auth::logout();
+        Auth::logout();        
         $this->redirectTo = 'http://' . $host . ':8000';
         return $this->redirectTo;        
     }
@@ -88,6 +88,7 @@ class RegisterController extends Controller
         ]);
 
         $website = new Website();
+        $website->uuid = $user->name;
         $website->user_id = $user->id;
         app(WebsiteRepository::class)->create($website);
 

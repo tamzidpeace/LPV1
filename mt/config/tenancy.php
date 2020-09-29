@@ -55,7 +55,7 @@ return [
          * tenant folder structure, disable this and implement
          * your own id generation logic.
          */
-        'disable-random-id' => false,
+        'disable-random-id' => true,
 
         /**
          * The random Id generator is responsible for creating the hash as mentioned

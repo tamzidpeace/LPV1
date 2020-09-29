@@ -20,11 +20,18 @@ class TestController extends Controller
     
     public function index(Request $request)
     {
-        return $user = Auth::user();
-        $users = User::all();
+        $user = Auth::user();
+        //$users = User::all();
+        
+        $hostname  = app(\Hyn\Tenancy\Environment::class)->hostname();
+        if (isset($fqdn)) {
+            $fqdn      = $hostname->fqdn;
+            $fqdn;
+        }
+        return $user;
 
         // $website = new Website();
-        // $website->user_id = $user->id;        
+        // $website->user_id = $user->id;
         // app(WebsiteRepository::class)->create($website);
 
         // $hostname = new Hostname();
@@ -32,9 +39,10 @@ class TestController extends Controller
         // app(HostnameRepository::class)->attach($hostname, $website);
         $website   = \Hyn\Tenancy\Facades\TenancyFacade::website();
         $user_id = $website->user_id;
-        if($user->id == $user_id)
+        if ($user->id == $user_id) {
             return $users;
-        else 
+        } else {
             return "unautharized";
+        }
     }
 }
