@@ -2,12 +2,6 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Models\Tenant\User;
-use Illuminate\Support\Facades\Auth;
-use Hyn\Tenancy\Contracts\Repositories\HostnameRepository;
-use Hyn\Tenancy\Contracts\Repositories\WebsiteRepository;
-use Hyn\Tenancy\Models\Hostname;
-use Hyn\Tenancy\Models\Website;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,10 +18,13 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::group(['middleware' => 'auth:api'], function() {
-      Route::get('test', 'Tenant\TestController@index');      
-  });
 
-
-Route::post('login', 'Tenant\TestController@login');
-
+Route::group(['prefix' => 'auth'], function () {
+    Route::post('login', 'AuthController@login');
+    Route::post('signup', 'AuthController@signup');
+  
+    Route::group(['middleware' => 'auth:api'], function () {
+        Route::get('logout', 'AuthController@logout');
+        Route::get('user', 'AuthController@user');
+    });
+});

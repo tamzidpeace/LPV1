@@ -10,14 +10,14 @@ use Illuminate\Support\Facades\Auth;
 
 class TestController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
+    // public function __construct()
+    // {
+    //     $this->middleware('auth');
+    // }
 
     public function index() {
-        $departments = Department::all();
-        return Auth::user();
+        //$departments = Department::all();
+        return 123;
         return $departments;
     }
 
