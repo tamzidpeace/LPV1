@@ -23,6 +23,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        \Stancl\Tenancy\Middleware\InitializeTenancyByDomain::$onFail = function () {
+            return redirect('https://localhost:8000.com/');
+        };
     }
 }
