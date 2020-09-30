@@ -45,7 +45,7 @@ class RegisterController extends Controller
         $host = $domain->fqdn;
         Auth::logout();        
         $this->redirectTo = 'http://' . $host . ':8000';
-        return $this->redirectTo;        
+        return $this->redirectTo;         
     }
 
     /**
@@ -86,9 +86,8 @@ class RegisterController extends Controller
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
         ]);
-
-        $website = new Website();
-        $website->uuid = $user->name;
+        
+        $website = new Website();        
         $website->user_id = $user->id;
         app(WebsiteRepository::class)->create($website);
 

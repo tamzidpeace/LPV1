@@ -4,8 +4,8 @@ namespace App\Http\Controllers\Tenant;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Tenant\User;
-//use App\User;
+//use App\Models\Tenant\User;
+use App\User;
 use Illuminate\Support\Facades\Auth;
 use Hyn\Tenancy\Contracts\Repositories\HostnameRepository;
 use Hyn\Tenancy\Contracts\Repositories\WebsiteRepository;
@@ -21,6 +21,10 @@ class TestController extends Controller
     
     public function index(Request $request)
     {
+        //return Auth::user();
+        // this is a very important code,
+        return $request->header('user');
+        return $request->user;
         return User::all();
         //$user = Auth::user();
         //$users = User::all();
