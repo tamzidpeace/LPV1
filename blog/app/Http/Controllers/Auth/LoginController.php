@@ -5,10 +5,6 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
-use Redirect;
-use Hyn\Tenancy\Models\Website;
-use Hyn\Tenancy\Models\Hostname;
-use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
 {
@@ -30,19 +26,7 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo;
-
-    protected function redirectTo()
-    {
-        $user = Auth::user();
-        $host = $_SERVER['HTTP_HOST'];;
-        if($host == 'localhost:8000') Auth::logout();
-        $website = Website::where('user_id', $user->id)->first();
-        $domain = Hostname::where('website_id', $website->id)->first();
-        $host = $domain->fqdn;
-        $this->redirectTo = 'http://' . $host . ':8000';         
-        return $this->redirectTo;
-    }
+    protected $redirectTo = RouteServiceProvider::HOME;
 
     /**
      * Create a new controller instance.
