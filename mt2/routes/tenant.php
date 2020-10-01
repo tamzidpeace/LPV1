@@ -49,4 +49,5 @@ Route::middleware([
     
 
     Route::get('userss', 'TestController@users');
+    Route::post('login', 'TestController@login');
 });
