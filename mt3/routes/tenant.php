@@ -18,25 +18,25 @@ use Stancl\Tenancy\Middleware\PreventAccessFromCentralDomains;
 |
 */
 
-Route::middleware([
-    'web',
-    InitializeTenancyByDomain::class,
-    PreventAccessFromCentralDomains::class,
-    ])->group(function () {
-        Route::get('/', function () {
-            return 'This is your multi-tenant application. The id of the current tenant is ' . tenant('id');
-        });
+Route::middleware(['web', InitializeTenancyByDomain::class, PreventAccessFromCentralDomains::class,])->group(function () {
+    Route::get('/', function () {
+        return view('welcome');
     });
 
+    // Route::get('/login', function () {
+    //     return view('auth.login');
+    // });
 
-Route::middleware([
-    'api',
-    InitializeTenancyByDomain::class,
-    PreventAccessFromCentralDomains::class,
-    ])->group(function () {
-        Route::get('/', function () {
-            return 'This is your multi-tenant application. The id of the current tenant is ' . tenant('id');
-        });
+    // Route::get('/register', function () {
+    //     return view('auth.register');
+    // });    
+});
 
-        Route::get('test', 'TestController@test');
-    });
+
+Route::middleware(['api', InitializeTenancyByDomain::class, PreventAccessFromCentralDomains::class,])->group(function () {
+    
+    
+    //Route::post('register', 'AuthController@register');
+    //Route::get('login', 'AuthController@login');
+    Route::get('index', 'AuthController@index');
+});
