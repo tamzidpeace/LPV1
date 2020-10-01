@@ -72,6 +72,10 @@ class AuthController extends Controller
         ]);
     }
 
+    public function index() {
+        return User::all();
+    }
+
     public function guard()
     {
         return Auth::guard();
@@ -85,4 +89,6 @@ class AuthController extends Controller
             'user' => auth()->user()
         ]);
     }
+
+    
 }

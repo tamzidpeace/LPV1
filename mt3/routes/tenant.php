@@ -37,6 +37,6 @@ Route::middleware(['api', InitializeTenancyByDomain::class, PreventAccessFromCen
     
     
     //Route::post('register', 'AuthController@register');
-    //Route::get('login', 'AuthController@login');
+    Route::post('login', 'AuthController@login');
     Route::get('index', 'AuthController@index');
 });
