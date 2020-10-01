@@ -24,9 +24,8 @@ class TenancyWebsites extends AbstractMigration
     {
         Schema::create('websites', function (Blueprint $table) {
             $table->bigIncrements('id');
-
+            $table->integer('user_id');
             $table->string('uuid');
-
             $table->timestamps();
             $table->softDeletes();
         });

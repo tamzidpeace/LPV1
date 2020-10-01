@@ -21,10 +21,11 @@ class TestController extends Controller
     
     public function index(Request $request)
     {
+        
         //return Auth::user();
         // this is a very important code,
         return $request->header('user');
-        return $request->user;
+        //return $request->user;
         return User::all();
         //$user = Auth::user();
         //$users = User::all();
