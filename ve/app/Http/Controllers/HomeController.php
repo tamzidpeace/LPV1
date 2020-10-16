@@ -3,9 +3,15 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+
 use SimpleSoftwareIO\QrCode\Facades\QrCode;
+
 use Twilio\Rest\Client;
 use Twilio\Exceptions\TwilioException;
+
+use Illuminate\Support\Facades\Mail;
+use App\Mail\EmailDemo;
+use Symfony\Component\HttpFoundation\Response;
 
 class HomeController extends Controller
 {
@@ -47,5 +53,20 @@ class HomeController extends Controller
             ['from' => $twilio_number, 'body' => $message]
         );
         return 123;
+    }
+
+    public function sendEmail() {
+        $email = 'positronx@gmail.com';
+   
+        $mailData = [
+            'title' => 'Demo Email',
+            'url' => 'https://www.positronx.io'
+        ];
+  
+        Mail::to($email)->send(new EmailDemo($mailData));
+   
+        return response()->json([
+            'message' => 'Email has been sent.'
+        ], Response::HTTP_OK);
     }
 }

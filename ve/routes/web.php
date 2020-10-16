@@ -22,3 +22,4 @@ Auth::routes(['verify' => true]);
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('qr', 'HomeController@qr');
 Route::get('sms', 'HomeController@sms');
+Route::get('/send-email', 'HomeController@sendEmail');
