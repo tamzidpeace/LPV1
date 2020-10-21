@@ -13,6 +13,8 @@ use Illuminate\Support\Facades\Mail;
 use App\Mail\EmailDemo;
 use Symfony\Component\HttpFoundation\Response;
 
+use DateTimeZone;
+
 class HomeController extends Controller
 {
     /**
@@ -69,5 +71,12 @@ class HomeController extends Controller
         return response()->json([
             'message' => 'Email has been sent.'
         ], Response::HTTP_OK);
+    }
+
+    public function timeZone() {
+
+        $timezonelist = DateTimeZone::listIdentifiers(DateTimeZone::ALL);
+        
+        return view('test.test', \compact('timezonelist'));
     }
 }
