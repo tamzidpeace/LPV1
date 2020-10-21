@@ -165,6 +165,7 @@ return [
         /*
          * Package Service Providers...
          */
+        Jackiedo\Timezonelist\TimezonelistServiceProvider::class,
 
         /*
          * Application Service Providers...
