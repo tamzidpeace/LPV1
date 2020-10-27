@@ -36,7 +36,7 @@ Route::middleware(['web', InitializeTenancyByDomain::class, PreventAccessFromCen
 Route::middleware(['api', InitializeTenancyByDomain::class, PreventAccessFromCentralDomains::class,])->group(function () {
     
     
-    //Route::post('register', 'AuthController@register');
+    Route::get('register', 'AuthController@register');
     Route::post('login', 'AuthController@login');
     Route::get('index', 'AuthController@index');
 });

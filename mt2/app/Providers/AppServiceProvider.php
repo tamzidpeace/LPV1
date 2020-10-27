@@ -32,8 +32,6 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         Passport::loadKeysFrom(base_path(config('passport.key_path')));        
-        \Stancl\Tenancy\Middleware\InitializeTenancyByDomain::$onFail = function () {
-            return redirect('https://localhost:8000.com/');
-        };
+        
     }
 }

@@ -62,7 +62,6 @@ class TestController extends Controller
     {
         $records = Customer::all();
         return view('student.index', \compact('records'));
-
     }
 
     public function bladeForm(Request $request)
@@ -83,7 +82,7 @@ class TestController extends Controller
 
     public function date()
     {
-        $d=mktime(0, 0, 0, date('m'), date('d'), date('Y'));        
+        $d=mktime(0, 0, 0, date('m'), date('d'), date('Y'));
         $today = date("Y-m-d H:i:s", $d);
         $yesterday = new DateTime('1 day ago');
         $date = new DateTime('30 days ago');
@@ -97,7 +96,8 @@ class TestController extends Controller
         return $month_records = Customer::where([['id', $customer->id], ['created_at', '>=' , $month_ago]])->count();
     }
 
-    public function dataTable() {
+    public function dataTable()
+    {
         $customers = Customer::all();
 
         return view('student.data_table', \compact('customers'));

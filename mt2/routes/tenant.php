@@ -42,7 +42,7 @@ Route::middleware([
 });
 
 Route::middleware([
-    'api',
+    'auth:api',
     InitializeTenancyByDomain::class,
     PreventAccessFromCentralDomains::class,
 ])->group(function () {
@@ -50,4 +50,5 @@ Route::middleware([
 
     Route::get('userss', 'TestController@users');
     Route::post('login', 'TestController@login');
+    Route::get('test', 'TestController@test');
 });

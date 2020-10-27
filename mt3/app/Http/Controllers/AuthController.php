@@ -15,14 +15,14 @@ class AuthController extends Controller
         $this->middleware('auth:api', ['except' => ['login', 'register']]);
     }
     
-    // public function register(Request $request)
-    // {
-    //     return User::create([
-    //         'name' => $request->name,
-    //         'email' => $request->email,
-    //         'password' => Hash::make($request->password),
-    //     ]);
-    // }
+    public function register(Request $request)
+    {
+        return User::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => Hash::make($request->password),
+        ]);
+    }
 
     // public function login(Request $request)
     // {
@@ -41,9 +41,9 @@ class AuthController extends Controller
     //     }
     // }
 
-    // public function index() {
-    //     return User::all();
-    // }
+    public function index() {
+        return User::all();
+    }
 
     public function login(Request $request)
     {

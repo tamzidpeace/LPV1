@@ -27,6 +27,7 @@
     "dependencies": {
         "admin-lte": "^3.0.5",
         "datatables.net": "^1.10.22",
-        "datatables.net-dt": "^1.10.22"
+        "datatables.net-dt": "^1.10.22",
+        "sweetalert2": "^10.3.5"
     }
 }

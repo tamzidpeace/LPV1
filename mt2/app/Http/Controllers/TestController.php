@@ -28,4 +28,8 @@ class TestController extends Controller
             return \response(['user' => Auth::user(), 'token' => $token]);
         }
     }
+
+    public function test() {
+        return 123;
+    }
 }

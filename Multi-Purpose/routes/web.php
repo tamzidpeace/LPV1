@@ -2,9 +2,10 @@
 
 use Illuminate\Support\Facades\Route;
 
+Auth::routes(['verify' => true]);
 
 Route::get('/home', function () {
-    return view('welcome');
+    return view('welcome')->middleware('verified');
 });
 
 Route::get('get-data', 'TestController@test');
@@ -47,3 +48,7 @@ Route::get('datatable', 'TestController@dataTable');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+
+// sweet alert
+Route::get('st', 'Testcontroller2@st')->name('st');
