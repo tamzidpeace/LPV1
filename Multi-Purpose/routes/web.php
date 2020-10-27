@@ -52,3 +52,4 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 // sweet alert
 Route::get('st', 'Testcontroller2@st')->name('st');
+Route::get('test', 'HomeController@test');
