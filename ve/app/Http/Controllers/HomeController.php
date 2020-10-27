@@ -44,12 +44,11 @@ class HomeController extends Controller
 
     public function sms()
     {
-        $recipients = "+16125173042";
+        $recipients = "+8801303792406";
         $message = "testing sms2";
-        $account_sid = "AC163091a9657e70284fd1d6bdbfb9430c";
-        $auth_token = "3f6e79c8fe80cc371e4de87098930754";
-        $twilio_number = "+12015810178";
-        //$twilio_number = "+1(612) 517-3042";
+        $account_sid = "ACdfd3039d1faac554730b592c95ee0120";
+        $auth_token = "781116e22bca85aec7ee1f7eacdd0c2d";
+        $twilio_number = "+18035605388";
         $client = new Client($account_sid, $auth_token);
         $client->messages->create(
             $recipients,
