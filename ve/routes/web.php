@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,3 +25,17 @@ Route::get('qr', 'HomeController@qr');
 Route::get('sms', 'HomeController@sms');
 Route::get('/send-email', 'HomeController@sendEmail');
 Route::get('time_zone', 'HomeController@timeZone');
+Route::get('session', 'HomeController@session');
+
+Route::get('jq-image-upload', 'HomeController@imageUpload');
+
+Route::get('dropzone/test', 'HomeController@dropZone');
+ 
+Route::post('dropzone/upload_image', 'HomeController@upload_image')->name('dropzone.upload_image');
+ 
+Route::get('dropzone/fetch_image', 'HomeController@fetch_image')->name('dropzone.fetch_image');
+ 
+Route::get('dropzone/delete_image', 'HomeController@delete_image')->name('dropzone.delete_image');
+
+
+Route::get('test/image/upload', 'HomeController@testImageUpload');

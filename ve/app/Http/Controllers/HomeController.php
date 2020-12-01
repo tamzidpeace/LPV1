@@ -11,6 +11,7 @@ use Twilio\Exceptions\TwilioException;
 
 use Illuminate\Support\Facades\Mail;
 use App\Mail\EmailDemo;
+use App\User;
 use Symfony\Component\HttpFoundation\Response;
 
 use DateTimeZone;
@@ -57,7 +58,8 @@ class HomeController extends Controller
         return 123;
     }
 
-    public function sendEmail() {
+    public function sendEmail()
+    {
         $email = 'positronx@gmail.com';
    
         $mailData = [
@@ -72,10 +74,62 @@ class HomeController extends Controller
         ], Response::HTTP_OK);
     }
 
-    public function timeZone() {
-
+    public function timeZone()
+    {
         $timezonelist = DateTimeZone::listIdentifiers(DateTimeZone::ALL);
         
         return view('test.test', \compact('timezonelist'));
+    }
+
+    public function session()
+    {
+        //session(['t1' => 'v1']);
+        return session('t1');
+    }
+
+    // public function imageUpload()
+    // {
+    //     return view('test.jq_image_upload');
+    // }
+
+    // public function dropZone()
+    // {
+    //     return view('test.jq_image_upload');
+    // }
+
+    // public function upload_image(Request $request)
+    // {
+    //     $image = $request->file('file');
+ 
+    //     $imageName = time() . '.' . $image->extension();
+ 
+    //     $image->move(public_path('images'), $imageName);
+ 
+    //     return response()->json(['success' => $imageName]);
+    // }
+ 
+    // public function fetch_image()
+    // {
+    //     $images = \File::allFiles(public_path('images'));
+    //     $output = '<div class="row">';
+    //     foreach ($images as $image) {
+    //         $output .= '<div class="col-md-2">
+    //             <img src="'.asset('images/' . $image->getFilename()).'" class="img-thumbnail" width="150" height="150"/>
+    //             <button type="button" class="btn btn-link remove_image" id="'.$image->getFilename().'">Remove</button>
+    //         </div>';
+    //     }
+    //     $output .= '</div>';
+    //     echo $output;
+    // }
+ 
+    // public function delete_image(Request $request)
+    // {
+    //     if ($request->get('name')) {
+    //         \File::delete(public_path('images/' . $request->get('name')));
+    //     }
+    // }
+
+    public function testImageUpload() {
+        return view('test.jq_image_upload');
     }
 }
