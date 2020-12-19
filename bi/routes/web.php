@@ -16,3 +16,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+
+Route::get('import-form', 'UserController@importForm');
+
+Route::post('import', 'UserController@import')->name('import');
