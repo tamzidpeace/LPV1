@@ -96,7 +96,7 @@ function edit(id) {
                 var url = form.attr("action");
                 var type = form.attr("method");
                 var data = form.serialize();
-
+                console.log(data);
                 $.ajax({
                     url: url,
                     data: data,

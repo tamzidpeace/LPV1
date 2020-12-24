@@ -39,3 +39,5 @@ Route::get('dropzone/delete_image', 'HomeController@delete_image')->name('dropzo
 
 
 Route::get('test/image/upload', 'HomeController@testImageUpload');
+
+Route::get('pusher/test', 'HomeController@pusher');

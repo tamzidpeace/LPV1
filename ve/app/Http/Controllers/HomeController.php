@@ -132,4 +132,8 @@ class HomeController extends Controller
     public function testImageUpload() {
         return view('test.jq_image_upload');
     }
+
+    public function pusher() {
+        return view('test.pusher');
+    }
 }
