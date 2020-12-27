@@ -1,6 +1,8 @@
 <?php
 
+use App\Events\FormSubmitted;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Http\Request;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,3 +18,22 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('counter', function () {
+    return view('counter');
+});
+
+
+Route::get('sender', function () {
+    return view('sender');
+});
+
+
+Route::post('sender', function (Request $request) {
+    event(new FormSubmitted($request->content));
+    return back();
+})->name('sender');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
