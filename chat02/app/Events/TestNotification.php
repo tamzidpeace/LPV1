@@ -10,19 +10,19 @@ use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Queue\SerializesModels;
 
-class FormSubmitted implements ShouldBroadcast
+class TestNotification implements ShouldBroadcast
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
-    public $text;
+    public $notify;
     /**
      * Create a new event instance.
      *
      * @return void
      */
-    public function __construct($text)
+    public function __construct($notify)
     {
-        $this->text = $text;
+        $this->notify = $notify;
     }
 
     /**
@@ -32,11 +32,11 @@ class FormSubmitted implements ShouldBroadcast
      */
     public function broadcastOn()
     {
-        //return new Channel('my-channel');
-        return ['my-channel'];
+        //return new PrivateChannel('channel-name');
+        return ['notify-channel'];
     }
 
     public function broadcastAs() {
-        return 'form-submitted';
+        return 'notify-event';
     }
 }

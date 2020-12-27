@@ -1,8 +1,10 @@
 <?php
 
 use App\Events\FormSubmitted;
+use App\Events\TestNotification;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
+use Pusher\Pusher;
 
 /*
 |--------------------------------------------------------------------------
@@ -37,3 +39,14 @@ Route::post('sender', function (Request $request) {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('test', function () {
+    return view('test');
+});
+
+Route::get('test2', function (Request $request) {
+    $count = $request->id;
+    $count++;
+    event(new TestNotification($count));
+    return $count;
+});
