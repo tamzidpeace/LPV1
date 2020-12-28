@@ -22,13 +22,12 @@ class DummyEvent implements ShouldBroadcast
      * @return void
      */
 
-    
-    public $data;
+        
+    public $user;
 
-    public function __construct($data)
+    public function __construct(User $user)
     {
-        $this->data = $data;
-       
+        $this->user = $user;
     }
 
     /**
@@ -40,9 +39,4 @@ class DummyEvent implements ShouldBroadcast
     {
         return new PrivateChannel("test");
     }
-
-    public function broadcastAs()
-  {
-      return 'my-event';
-  }
 }

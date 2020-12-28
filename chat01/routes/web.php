@@ -23,8 +23,8 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('test', function() {
-    
-   event(new DummyEvent('hello world'));
+Route::get('test', function () {
+    $user = Auth::user();
+    event(new DummyEvent($user));
     return view('test');
 });

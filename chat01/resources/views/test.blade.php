@@ -14,7 +14,7 @@
 
      <script>
           var channel = Echo.private('test');
-          channel.listen('.my-event', function (data) {
+          channel.listen('DummyEvent', function (data) {
           alert(JSON.stringify(data));
      // console.log(channel);
 });
