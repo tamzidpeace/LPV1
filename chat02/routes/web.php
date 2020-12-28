@@ -1,12 +1,10 @@
 <?php
 
+use App\Events\FormSubmitted;
+use App\Events\TestNotification;
 use Illuminate\Support\Facades\Route;
-use Illuminate\Support\Facades\Auth;
-<<<<<<< HEAD
-use App\Events\DummyEvent;
-=======
-
->>>>>>> 7576a391f8c4f4bf2c100ff118a657d2650faf2d
+use Illuminate\Http\Request;
+use Pusher\Pusher;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,18 +21,32 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('counter', function () {
+    return view('counter');
+});
+
+
+Route::get('sender', function () {
+    return view('sender');
+});
+
+
+Route::post('sender', function (Request $request) {
+    event(new FormSubmitted($request->content));
+    return back();
+})->name('sender');
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-<<<<<<< HEAD
-Route::get('test', function() {
-    
-   event(new DummyEvent('hello world'));
+Route::get('test', function () {
     return view('test');
 });
-=======
-Route::get('chat', 'ChatsController@index');
-Route::get('messages', 'ChatsController@fetchMessages');
-Route::post('messages', 'ChatsController@sendMessage');
->>>>>>> 7576a391f8c4f4bf2c100ff118a657d2650faf2d
+
+Route::get('test2', function (Request $request) {
+    $count = $request->id;
+    $count++;
+    event(new TestNotification($count));
+    return $count;
+});
