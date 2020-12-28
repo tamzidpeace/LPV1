@@ -14,9 +14,9 @@
 
      <script>
           var channel = Echo.private('test');
-channel.listen('.my-event', function (data) {
-    alert(JSON.stringify(data));
-   // console.log(channel);
+          channel.listen('.my-event', function (data) {
+          alert(JSON.stringify(data));
+     // console.log(channel);
 });
      </script>
 </body>

@@ -17,13 +17,7 @@ Broadcast::channel('App.User.{id}', function ($user, $id) {
     return (int) $user->id === (int) $id;
 });
 
-<<<<<<< HEAD
 
-Broadcast::channel('test', function ( $data) {
+Broadcast::channel('test', function ($data) {
     return 1;
 });
-=======
-Broadcast::channel('chat', function ($user) {
-    return Auth::check();
-  });
->>>>>>> 7576a391f8c4f4bf2c100ff118a657d2650faf2d

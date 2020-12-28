@@ -2,11 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
-<<<<<<< HEAD
 use App\Events\DummyEvent;
-=======
-
->>>>>>> 7576a391f8c4f4bf2c100ff118a657d2650faf2d
 
 /*
 |--------------------------------------------------------------------------
@@ -27,14 +23,8 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-<<<<<<< HEAD
 Route::get('test', function() {
     
    event(new DummyEvent('hello world'));
     return view('test');
 });
-=======
-Route::get('chat', 'ChatsController@index');
-Route::get('messages', 'ChatsController@fetchMessages');
-Route::post('messages', 'ChatsController@sendMessage');
->>>>>>> 7576a391f8c4f4bf2c100ff118a657d2650faf2d
