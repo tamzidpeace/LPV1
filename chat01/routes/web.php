@@ -24,7 +24,14 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('test', function () {
-    $user = Auth::user();
-    event(new DummyEvent($user));
+   // $user = Auth::user();
+    event(new DummyEvent('hello'));
     return view('test');
 });
+
+Route::get('test-p', function() {
+    return view('test_print');
+});
+
+
+Route::get('test_print2', 'HomeController@testPrint2');

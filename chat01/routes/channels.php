@@ -19,5 +19,6 @@ Broadcast::channel('App.User.{id}', function ($user, $id) {
 
 
 Broadcast::channel('test', function ($data) {
-    return Auth::check();
+    //return Auth::check();
+    return 1;
 });
