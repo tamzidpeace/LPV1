@@ -75,5 +75,7 @@ class HomeController extends Controller
         $printer->qrCode(123,Printer::QR_ECLEVEL_L,10);
         $printer -> cut();
         $printer -> close();
+
+        //return view('test_print2');
     }
 }
