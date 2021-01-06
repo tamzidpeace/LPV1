@@ -35,3 +35,4 @@ Route::get('test-p', function() {
 
 
 Route::get('test_print2', 'HomeController@testPrint2');
+Route::get('test_print3', 'HomeController@testPrint3');

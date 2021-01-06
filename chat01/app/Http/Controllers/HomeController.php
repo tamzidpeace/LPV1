@@ -4,8 +4,14 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Rawilk\Printing\Facades\Printing;
-use Rawilk\Printing\Contracts\Printer;
+// use Rawilk\Printing\Contracts\Printer;
 use Rawilk\Printing\Receipts\ReceiptPrinter;
+
+use Mike42\Escpos\PrintConnectors\FilePrintConnector;
+use Mike42\Escpos\Printer;
+use Mike42\Escpos\PrintConnectors\WindowsPrintConnector;
+use Mike42\Escpos\CapabilityProfile;
+
 
 class HomeController extends Controller
 {
@@ -32,7 +38,7 @@ class HomeController extends Controller
     public function testPrint2()
     {
         // $printerId = Printing::defaultPrinterId();
-        
+
         // Printing::newPrintTask()
         // ->printer($printerId)
         // ->file('Scan_Info.pdf')
@@ -56,5 +62,18 @@ class HomeController extends Controller
         ->printer(69972550)
         ->content($receipt)
         ->send();
+    }
+
+    public function testPrint3()
+    {
+
+
+        $connector = new WindowsPrintConnector("EPSON TM-T81III Receipt");
+        $printer = new Printer($connector);
+        $printer->setPrintLeftMargin(300);
+        $printer -> text("Hello World!\n");
+        $printer->qrCode(123,Printer::QR_ECLEVEL_L,10);
+        $printer -> cut();
+        $printer -> close();
     }
 }
