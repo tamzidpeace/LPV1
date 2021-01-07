@@ -11,10 +11,11 @@ use Mike42\Escpos\PrintConnectors\FilePrintConnector;
 use Mike42\Escpos\Printer;
 use Mike42\Escpos\PrintConnectors\WindowsPrintConnector;
 use Mike42\Escpos\CapabilityProfile;
-
+use jeremykenedy\LaravelLogger\App\Http\Traits\ActivityLogger;
 
 class HomeController extends Controller
 {
+    use ActivityLogger;
     /**
      * Create a new controller instance.
      *
@@ -33,6 +34,10 @@ class HomeController extends Controller
     public function index()
     {
         return view('home');
+    }
+
+    public function welcome() {
+        return view('welcome');
     }
 
     public function testPrint2()

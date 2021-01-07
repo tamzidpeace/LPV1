@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "243fceb2bff96745c188ee89dc23a0f5",
+    "content-hash": "103a7108af13c1ba8e6d4b9f2cadd9d7",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -896,6 +896,195 @@
             "time": "2020-09-30T07:37:11+00:00"
         },
         {
+            "name": "jaybizzle/crawler-detect",
+            "version": "v1.2.103",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/JayBizzle/Crawler-Detect.git",
+                "reference": "3efa2860959cc971f17624b40bf0699823f9d0f3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/JayBizzle/Crawler-Detect/zipball/3efa2860959cc971f17624b40bf0699823f9d0f3",
+                "reference": "3efa2860959cc971f17624b40bf0699823f9d0f3",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^4.8|^5.5|^6.5"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Jaybizzle\\CrawlerDetect\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Mark Beech",
+                    "email": "m@rkbee.ch",
+                    "role": "Developer"
+                }
+            ],
+            "description": "CrawlerDetect is a PHP class for detecting bots/crawlers/spiders via the user agent",
+            "homepage": "https://github.com/JayBizzle/Crawler-Detect/",
+            "keywords": [
+                "crawler",
+                "crawler detect",
+                "crawler detector",
+                "crawlerdetect",
+                "php crawler detect"
+            ],
+            "support": {
+                "issues": "https://github.com/JayBizzle/Crawler-Detect/issues",
+                "source": "https://github.com/JayBizzle/Crawler-Detect/tree/v1.2.103"
+            },
+            "time": "2020-11-23T19:49:25+00:00"
+        },
+        {
+            "name": "jaybizzle/laravel-crawler-detect",
+            "version": "v1.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/JayBizzle/Laravel-Crawler-Detect.git",
+                "reference": "e39b536fb5e4f21a49328e83a2ab26f0b64b06f7"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/JayBizzle/Laravel-Crawler-Detect/zipball/e39b536fb5e4f21a49328e83a2ab26f0b64b06f7",
+                "reference": "e39b536fb5e4f21a49328e83a2ab26f0b64b06f7",
+                "shasum": ""
+            },
+            "require": {
+                "jaybizzle/crawler-detect": "1.*",
+                "php": ">=5.4.0"
+            },
+            "require-dev": {
+                "orchestra/testbench": "3.1.*",
+                "phpunit/phpunit": "4.*"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Jaybizzle\\LaravelCrawlerDetect\\LaravelCrawlerDetectServiceProvider"
+                    ],
+                    "aliases": {
+                        "Crawler": "Jaybizzle\\LaravelCrawlerDetect\\Facades\\LaravelCrawlerDetect"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Jaybizzle\\LaravelCrawlerDetect\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Mark Beech",
+                    "email": "mbeech@mark-beech.co.uk"
+                }
+            ],
+            "description": "A Laravel package to detect web crawlers via the user agent",
+            "homepage": "http://github.com/JayBizzle/Laravel-Crawler-Detect",
+            "keywords": [
+                "bot",
+                "crawler",
+                "crawler detect",
+                "crawler detector",
+                "crawlerdetect",
+                "detect",
+                "laravel",
+                "php crawler detect",
+                "spider",
+                "user-agent"
+            ],
+            "support": {
+                "issues": "https://github.com/JayBizzle/Laravel-Crawler-Detect/issues",
+                "source": "https://github.com/JayBizzle/Laravel-Crawler-Detect/tree/master"
+            },
+            "time": "2017-06-01T20:29:30+00:00"
+        },
+        {
+            "name": "jeremykenedy/laravel-logger",
+            "version": "v4.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/jeremykenedy/laravel-logger.git",
+                "reference": "319636b9e6203611b0ba9ac7eae39c18847a10a5"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/jeremykenedy/laravel-logger/zipball/319636b9e6203611b0ba9ac7eae39c18847a10a5",
+                "reference": "319636b9e6203611b0ba9ac7eae39c18847a10a5",
+                "shasum": ""
+            },
+            "require": {
+                "jaybizzle/laravel-crawler-detect": "1.*",
+                "laravelcollective/html": "^5.4|^5.5|^5.6|^5.7|^5.8|^6.0|^7.0|^8.0",
+                "php": ">=7.3.0|^8.0"
+            },
+            "type": "package",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "jeremykenedy\\LaravelLogger\\LaravelLoggerServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "jeremykenedy\\LaravelLogger\\": "src/"
+                },
+                "files": [
+                    "src/App/Logic/helpers.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "jeremykenedy",
+                    "email": "jeremykenedy@gmail.com"
+                }
+            ],
+            "description": "Laravel Logger Package",
+            "keywords": [
+                "Laravel activity",
+                "Laravel activity log",
+                "Laravel activity logger",
+                "Laravel log",
+                "laravel logger"
+            ],
+            "support": {
+                "issues": "https://github.com/jeremykenedy/laravel-logger/issues",
+                "source": "https://github.com/jeremykenedy/laravel-logger/tree/v4.2.0"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/jeremykenedy",
+                    "type": "github"
+                },
+                {
+                    "url": "https://www.patreon.com/jeremykenedy",
+                    "type": "patreon"
+                }
+            ],
+            "time": "2021-01-03T20:33:19+00:00"
+        },
+        {
             "name": "laravel/framework",
             "version": "v7.30.1",
             "source": {
@@ -1179,6 +1368,78 @@
                 "source": "https://github.com/laravel/ui/tree/v2.5.0"
             },
             "time": "2020-11-03T19:45:19+00:00"
+        },
+        {
+            "name": "laravelcollective/html",
+            "version": "v6.2.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/LaravelCollective/html.git",
+                "reference": "ae15b9c4bf918ec3a78f092b8555551dd693fde3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/LaravelCollective/html/zipball/ae15b9c4bf918ec3a78f092b8555551dd693fde3",
+                "reference": "ae15b9c4bf918ec3a78f092b8555551dd693fde3",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/http": "^6.0|^7.0|^8.0",
+                "illuminate/routing": "^6.0|^7.0|^8.0",
+                "illuminate/session": "^6.0|^7.0|^8.0",
+                "illuminate/support": "^6.0|^7.0|^8.0",
+                "illuminate/view": "^6.0|^7.0|^8.0",
+                "php": ">=7.2.5"
+            },
+            "require-dev": {
+                "illuminate/database": "^6.0|^7.0|^8.0",
+                "mockery/mockery": "~1.0",
+                "phpunit/phpunit": "~8.5"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "6.x-dev"
+                },
+                "laravel": {
+                    "providers": [
+                        "Collective\\Html\\HtmlServiceProvider"
+                    ],
+                    "aliases": {
+                        "Form": "Collective\\Html\\FormFacade",
+                        "Html": "Collective\\Html\\HtmlFacade"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Collective\\Html\\": "src/"
+                },
+                "files": [
+                    "src/helpers.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Adam Engebretson",
+                    "email": "adam@laravelcollective.com"
+                },
+                {
+                    "name": "Taylor Otwell",
+                    "email": "taylorotwell@gmail.com"
+                }
+            ],
+            "description": "HTML and Form Builders for the Laravel Framework",
+            "homepage": "https://laravelcollective.com",
+            "support": {
+                "issues": "https://github.com/LaravelCollective/html/issues",
+                "source": "https://github.com/LaravelCollective/html"
+            },
+            "time": "2020-12-15T20:20:05+00:00"
         },
         {
             "name": "league/commonmark",
@@ -3210,6 +3471,69 @@
                 }
             ],
             "time": "2020-08-18T17:17:46+00:00"
+        },
+        {
+            "name": "rap2hpoutre/laravel-log-viewer",
+            "version": "v1.7.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/rap2hpoutre/laravel-log-viewer.git",
+                "reference": "27392d29234b6ff38a456454558f4bcc40cc837a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/rap2hpoutre/laravel-log-viewer/zipball/27392d29234b6ff38a456454558f4bcc40cc837a",
+                "reference": "27392d29234b6ff38a456454558f4bcc40cc837a",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": "4.2.*|5.*|^6.0|^7.0|^8.0",
+                "php": ">=5.4.0"
+            },
+            "require-dev": {
+                "orchestra/testbench": "3.7.*",
+                "phpunit/phpunit": "^7"
+            },
+            "type": "laravel-package",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Rap2hpoutre\\LaravelLogViewer\\LaravelLogViewerServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "classmap": [
+                    "src/controllers"
+                ],
+                "psr-0": {
+                    "Rap2hpoutre\\LaravelLogViewer\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "rap2hpoutre",
+                    "email": "raphaelht@gmail.com"
+                }
+            ],
+            "description": "A Laravel log reader",
+            "keywords": [
+                "laravel",
+                "log",
+                "log-reader",
+                "log-viewer",
+                "logging",
+                "lumen"
+            ],
+            "support": {
+                "issues": "https://github.com/rap2hpoutre/laravel-log-viewer/issues",
+                "source": "https://github.com/rap2hpoutre/laravel-log-viewer/tree/master"
+            },
+            "time": "2020-09-08T12:21:27+00:00"
         },
         {
             "name": "rawilk/laravel-printing",

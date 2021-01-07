@@ -126,6 +126,11 @@
       <path value="$PROJECT_DIR$/vendor/rawilk/laravel-printing" />
       <path value="$PROJECT_DIR$/vendor/pusher/pusher-php-server" />
       <path value="$PROJECT_DIR$/vendor/smalot/cups-ipp" />
+      <path value="$PROJECT_DIR$/vendor/jeremykenedy/laravel-logger" />
+      <path value="$PROJECT_DIR$/vendor/jaybizzle/laravel-crawler-detect" />
+      <path value="$PROJECT_DIR$/vendor/jaybizzle/crawler-detect" />
+      <path value="$PROJECT_DIR$/vendor/laravelcollective/html" />
+      <path value="$PROJECT_DIR$/vendor/rap2hpoutre/laravel-log-viewer" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="7.2" />

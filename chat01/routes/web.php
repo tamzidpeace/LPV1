@@ -15,10 +15,11 @@ use App\Events\DummyEvent;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::group(['middleware' => ['web', 'activity']], function () {
+    Route::get('/', 'HomeController@welcome')->name('welcome');
+    Route::get('test_print2', 'HomeController@testPrint2');
+    Route::get('test_print3', 'HomeController@testPrint3');
 });
-
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
@@ -33,6 +34,5 @@ Route::get('test-p', function() {
     return view('test_print');
 });
 
+Route::get('logs', '\Rap2hpoutre\LaravelLogViewer\LogViewerController@index');
 
-Route::get('test_print2', 'HomeController@testPrint2');
-Route::get('test_print3', 'HomeController@testPrint3');
