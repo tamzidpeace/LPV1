@@ -83,4 +83,8 @@ class HomeController extends Controller
 
         //return view('test_print2');
     }
+
+    public function payment() {
+        return view('payment');
+    }
 }

@@ -36,3 +36,4 @@ Route::get('test-p', function() {
 
 Route::get('logs', '\Rap2hpoutre\LaravelLogViewer\LogViewerController@index');
 
+Route::get('payment', 'HomeController@payment');
