@@ -1,5 +1,6 @@
 <?php
 
+use App\Mail\TestAmazonSes;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Events\DummyEvent;
@@ -37,3 +38,9 @@ Route::get('test-p', function() {
 Route::get('logs', '\Rap2hpoutre\LaravelLogViewer\LogViewerController@index');
 
 Route::get('payment', 'HomeController@payment');
+
+Route::get('test-email', 'HomeController@testEmail');
+
+Route::get('test-email2', function () {
+    Mail::to('email@doe.com')->send(new TestAmazonSes('It works!'));
+});

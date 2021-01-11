@@ -2,8 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\TestAmazonSes;
 use Illuminate\Http\Request;
+//use Illuminate\Support\Facades\Mail;
+use Mail;
 use Rawilk\Printing\Facades\Printing;
+
 // use Rawilk\Printing\Contracts\Printer;
 use Rawilk\Printing\Receipts\ReceiptPrinter;
 
@@ -16,6 +20,7 @@ use jeremykenedy\LaravelLogger\App\Http\Traits\ActivityLogger;
 class HomeController extends Controller
 {
     use ActivityLogger;
+
     /**
      * Create a new controller instance.
      *
@@ -36,7 +41,8 @@ class HomeController extends Controller
         return view('home');
     }
 
-    public function welcome() {
+    public function welcome()
+    {
         return view('welcome');
     }
 
@@ -51,22 +57,22 @@ class HomeController extends Controller
         //69972550
         //69972549
 
-        $receipt = (string) (new ReceiptPrinter)
-        ->centerAlign()
-        ->text('My heading')
-        ->leftAlign()
-        ->line()
-        ->twoColumnText('Item 1', '2.00')
-        ->twoColumnText('Item 2', '4.00')
-        ->feed(2)
-        ->centerAlign()
-        ->barcode('1234')
-        ->cut();
+        $receipt = (string)(new ReceiptPrinter)
+            ->centerAlign()
+            ->text('My heading')
+            ->leftAlign()
+            ->line()
+            ->twoColumnText('Item 1', '2.00')
+            ->twoColumnText('Item 2', '4.00')
+            ->feed(2)
+            ->centerAlign()
+            ->barcode('1234')
+            ->cut();
 
         Printing::newPrintTask()
-        ->printer(69972550)
-        ->content($receipt)
-        ->send();
+            ->printer(69972550)
+            ->content($receipt)
+            ->send();
     }
 
     public function testPrint3()
@@ -76,15 +82,27 @@ class HomeController extends Controller
         $connector = new WindowsPrintConnector("EPSON TM-T81III Receipt");
         $printer = new Printer($connector);
         $printer->setPrintLeftMargin(300);
-        $printer -> text("Hello World!\n");
-        $printer->qrCode(123,Printer::QR_ECLEVEL_L,10);
-        $printer -> cut();
-        $printer -> close();
+        $printer->text("Hello World!\n");
+        $printer->qrCode(123, Printer::QR_ECLEVEL_L, 10);
+        $printer->cut();
+        $printer->close();
 
         //return view('test_print2');
     }
 
-    public function payment() {
+    public function payment()
+    {
         return view('payment');
+    }
+
+    public function testEmail()
+    {
+        Mail::to('tamjedpeace@gmail.com')->send(new TestAmazonSes('Hello World!'));
+
+        return 123;
+//        Mail::send('emails.activation', $data, function($message){
+//            $message->from('email@from', 'name');
+//            $message->to($email)->subject($subject);
+//        });
     }
 }
