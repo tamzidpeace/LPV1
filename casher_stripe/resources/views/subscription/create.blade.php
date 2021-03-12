@@ -6,6 +6,7 @@
     <title>Laravel</title>
     <!-- Styles -->
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+
     <style>
         .alert.parsley {
             margin-top: 5px;
@@ -33,6 +34,7 @@
             display: table-row;
         }
     </style>
+
     <!-- JavaScripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
@@ -53,40 +55,51 @@
                 </div>
                 <div class="panel-body">
                     <div class="col-md-12">
-                        {!! Form::open(['url' => route('order-post'), 'data-parsley-validate', 'id' => 'payment-form']) !!}
-                        @if ($message = Session::get('success'))
-                            <div class="alert alert-success alert-block">
-                                <button type="button" class="close" data-dismiss="alert">×</button>
-                                <strong>{{ $message }}</strong>
+                        <form action="{{ route('order-post') }}" method="post" data-parsley-validate="" id="payment-form" novalidate="">
+
+                            @csrf
+
+                            @if ($message = Session::get('success'))
+                                <div class="alert alert-success alert-block">
+                                    <button type="button" class="close" data-dismiss="alert">×</button>
+                                    <strong>{{ $message }}</strong>
+                                </div>
+                            @endif
+
+                            <div class="form-group">
+                                <label for="plane">Select Plan:</label>
+                                <select class="form-control" required="required"
+                                        data-parsley-class-handler="#product-group" id="plane"
+                                        name="plane">
+                                    <option value="price_1ITpB5FOGLyEH2rNHrxmFfeP">Game ($50)</option>
+                                    <option value="movie">Movie ($100)</option>
+                                </select>
                             </div>
-                        @endif
-                        <div class="form-group" id="product-group">
-                            {!! Form::label('plane', 'Select Plan:') !!}
-                            {!! Form::select('plane', ['price_1ITpB5FOGLyEH2rNHrxmFfeP' => 'Game ($50)','movie' => 'Movie ($100)'], null, [
-                                'class'                       => 'form-control',
-                                'required'                    => 'required',
-                                'data-parsley-class-handler'  => '#product-group'
-                                ]) !!}
-                        </div>
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="form-group">
-                                    <div id="card-element"></div>
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <div id="card-element"></div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="form-group">
+                                <button type="submit" id="card-button" class="btn btn-lg btn-block btn-success btn-order">Place
+                                    order!
+                                </button>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                <span class="payment-errors" id="card-errors"
+                                      style="color: red;margin-top:10px;"></span>
                                 </div>
                             </div>
 
-                        </div>
-                        <div class="form-group">
-                            <button id="card-button" class="btn btn-lg btn-block btn-success btn-order">Place order !
-                            </button>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-12">
-                                <span class="payment-errors" id="card-errors"
-                                      style="color: red;margin-top:10px;"></span>
-                            </div>
-                        </div>
-                        {!! Form::close() !!}
+                        </form>
+
                     </div>
                 </div>
             </div>
@@ -97,6 +110,7 @@
 </div>
 
 <!-- PARSLEY -->
+
 <script>
     window.ParsleyConfig = {
         errorsWrapper: '<div></div>',
@@ -107,9 +121,9 @@
 </script>
 
 <script src="http://parsleyjs.org/dist/parsley.js"></script>
-
 <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
 <script src="https://js.stripe.com/v3/"></script>
+
 <script>
     var style = {
         base: {
@@ -147,7 +161,6 @@
     var form = document.getElementById('payment-form');
 
 
-    var form = document.getElementById('payment-form');
     form.addEventListener('submit', function (event) {
         event.preventDefault();
 
@@ -162,6 +175,7 @@
             }
         });
     });
+    
 
     // Submit the form with the token ID.
     function stripeTokenHandler(token) {
@@ -176,6 +190,8 @@
         // Submit the form
         form.submit();
     }
+
+
 </script>
 </body>
 </html>
