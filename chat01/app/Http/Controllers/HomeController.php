@@ -77,17 +77,33 @@ class HomeController extends Controller
 
     public function testPrint3()
     {
-
-
-        $connector = new WindowsPrintConnector("EPSON TM-T81III Receipt");
+       /* $connector = new WindowsPrintConnector("Receipt Printer");
         $printer = new Printer($connector);
         $printer->setPrintLeftMargin(300);
         $printer->text("Hello World!\n");
-        $printer->qrCode(123, Printer::QR_ECLEVEL_L, 10);
+        //$printer->qrCode(123, Printer::QR_ECLEVEL_L, 10);
         $printer->cut();
         $printer->close();
 
-        //return view('test_print2');
+        //return view('test_print2');*/
+
+        try {
+            // Enter the share name for your printer here, as a smb:// url format
+            $connector = new WindowsPrintConnector("smb://Genie1/Receipt Printer");
+            //$connector = new WindowsPrintConnector("smb://Guest@computername/Receipt Printer");
+            //$connector = new WindowsPrintConnector("smb://FooUser:secret@computername/workgroup/Receipt Printer");
+            //$connector = new WindowsPrintConnector("smb://User:secret@computername/Receipt Printer");
+
+            /* Print a "Hello world" receipt" */
+            $printer = new Printer($connector);
+            $printer -> text("Hello World!\n");
+            $printer -> cut();
+
+            /* Close printer */
+            $printer -> close();
+        } catch (Exception $e) {
+            echo "Couldn't print to this printer: " . $e -> getMessage() . "\n";
+        }
     }
 
     public function payment()

@@ -24,7 +24,7 @@
         <script
             src="https://checkout.stripe.com/checkout.js" class="stripe-button"
             data-key="pk_test_zNc5tquatSbXljddf76ksHaF00mTm5lWhM"
-            data-amout="100"
+            data-amout="100 * 100"
             data-name="arafat"
             data-description="example charge"
             data-image="https://stripe.com/img/documentation/checkout/marketplace.png"

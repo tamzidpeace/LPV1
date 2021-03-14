@@ -7,34 +7,6 @@
     <!-- Styles -->
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
 
-    <style>
-        .alert.parsley {
-            margin-top: 5px;
-            margin-bottom: 0px;
-            padding: 10px 15px 10px 15px;
-        }
-
-        .check .alert {
-            margin-top: 20px;
-        }
-
-        .credit-card-box .panel-title {
-            display: inline;
-            font-weight: bold;
-        }
-
-        .credit-card-box .display-td {
-            display: table-cell;
-            vertical-align: middle;
-            width: 100%;
-            text-align: center;
-        }
-
-        .credit-card-box .display-tr {
-            display: table-row;
-        }
-    </style>
-
     <!-- JavaScripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
@@ -111,14 +83,6 @@
 
 <!-- PARSLEY -->
 
-<script>
-    window.ParsleyConfig = {
-        errorsWrapper: '<div></div>',
-        errorTemplate: '<div class="alert alert-danger parsley" role="alert"></div>',
-        errorClass: 'has-error',
-        successClass: 'has-success'
-    };
-</script>
 
 <script src="http://parsleyjs.org/dist/parsley.js"></script>
 <script type="text/javascript" src="https://js.stripe.com/v2/"></script>

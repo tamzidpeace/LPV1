@@ -16,11 +16,7 @@ use App\Events\DummyEvent;
 |
 */
 
-Route::group(['middleware' => ['web', 'activity']], function () {
-    Route::get('/', 'HomeController@welcome')->name('welcome');
-    Route::get('test_print2', 'HomeController@testPrint2');
-    Route::get('test_print3', 'HomeController@testPrint3');
-});
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
@@ -44,3 +40,5 @@ Route::get('test-email', 'HomeController@testEmail');
 Route::get('test-email2', function () {
     Mail::to('email@doe.com')->send(new TestAmazonSes('It works!'));
 });
+
+Route::get('test_print3', 'HomeController@testPrint3');

@@ -4,9 +4,11 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 Use App\User;
+use Illuminate\Support\Facades\Auth;
 use Stripe;
 use Session;
 use Exception;
+use Laravel\Cashier\Cashier;
 
 class SubscriptionController extends Controller
 {
@@ -17,6 +19,7 @@ class SubscriptionController extends Controller
 
     public function orderPost(Request $request)
     {
+        return $request;
         $user = auth()->user();
         $input = $request->all();
         $token =  $request->stripeToken;
@@ -45,4 +48,12 @@ class SubscriptionController extends Controller
         }
 
     }
+
+    //practice cashier
+    public function cashierIndex() {
+        $user = Auth::user();
+        $intent = $user->createSetupIntent();
+        return view('prac_cashiar', compact('intent'));
+    }
+
 }
