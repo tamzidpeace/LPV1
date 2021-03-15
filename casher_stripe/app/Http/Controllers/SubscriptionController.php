@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-Use App\User;
+use App\User;
 use Illuminate\Support\Facades\Auth;
 use Stripe;
 use Session;
@@ -22,7 +22,7 @@ class SubscriptionController extends Controller
         return $request;
         $user = auth()->user();
         $input = $request->all();
-        $token =  $request->stripeToken;
+        $token = $request->stripeToken;
         $paymentMethod = $request->paymentMethod;
         try {
 
@@ -37,23 +37,64 @@ class SubscriptionController extends Controller
                 ['source' => $token]
             );
 
-            $user->newSubscription('test',$input['plane'])
+            $user->newSubscription('test', $input['plane'])
                 ->create($paymentMethod, [
                     'email' => $user->email,
                 ]);
 
-            return back()->with('success','Subscription is completed.');
+            return back()->with('success', 'Subscription is completed.');
         } catch (Exception $e) {
-            return back()->with('success',$e->getMessage());
+            return back()->with('success', $e->getMessage());
         }
 
     }
 
     //practice cashier
-    public function cashierIndex() {
+    public function cashierIndex()
+    {
         $user = Auth::user();
+
+        /*$paymentMethod2 = 'pm_1IV6oxFOGLyEH2rNOGz2Xqq5';
+
+
+        try {
+            $user->charge(100, $paymentMethod2);
+            return 1;
+        } catch (Exception $e) {
+            return $e;
+        }*/
+
+        $payment_methods = [];
+
+        foreach ($user->paymentMethods() as $paymentMethod) {
+            $payment_methods[] = $paymentMethod->asStripePaymentMethod();
+        }
+
+        try {
+            $user->charge(100 * 100, $payment_methods[0]);
+            return 1;
+        } catch (Exception $e) {
+            return $e;
+        }
+
         $intent = $user->createSetupIntent();
         return view('prac_cashiar', compact('intent'));
+    }
+
+    public function cashierProcess(Request $request)
+    {
+        $user = Auth::user();
+
+        $paymentMethod = $request->pm;
+        $paymentMethod2 = 'pm_1IV6oxFOGLyEH2rNOGz2Xqq5';
+
+
+        try {
+            $user->charge(100, $paymentMethod2);
+            return 1;
+        } catch (Exception $e) {
+            return $e;
+        }
     }
 
 }
